@@ -1,0 +1,21 @@
+cmake_minimum_required(VERSION "3.5.1" ) # 定义cmake最小版本号
+add_compile_options("$<$<CXX_COMPILER_ID:MSVC>:/source-charset:utf-8>") # 解决源码含有中文时报错
+
+set(CMAKE_BUILD_TYPE Release)
+
+# Create project
+set(ProjectName "demo") # 定义变量
+project(${ProjectName}) # 定义项目名称
+message("ProjectName: ${ProjectName}") # 打印项目名称
+add_executable(${ProjectName} yolov5.cpp) # 需要编译的如何文件
+
+
+# Opencv库引入
+set(OpenCV_DIR "C:\\Temp\\cinclude\\opencv\\build\\x64\\vc15\\lib")   # 来源 https://github.com/opencv/opencv/releases/tag/4.5.5
+find_package(OpenCV REQUIRED)
+target_link_libraries(${ProjectName} ${OpenCV_LIBS})
+
+# ncnn库引入
+set(ncnn_DIR "C:\\Temp\\cinclude\\ncnn\\x64\\lib\\cmake\\ncnn") # 来源 https://github.com/Tencent/ncnn/releases/tag/20220420
+find_package(ncnn REQUIRED)
+target_link_libraries(${ProjectName} ncnn)
