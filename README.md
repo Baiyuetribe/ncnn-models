@@ -21,9 +21,10 @@ The ncnn framework enables cross-device deployment with the help of the vulkan a
 
 > We believe we will succeed in the end.
 
-| Model                                   | From | Code                                                   | Convert | IsWork | Desktop | Mobile | Wasm | Uni-app | loT  |
-| :-------------------------------------- | :--- | :----------------------------------------------------- | :------ | :----- | :------ | :----- | :--- | :------ | :--- |
-| [AnimeGanV3](style_transfer/animeganv3) | Onnx | [link](https://github.com/TachibanaYoshino/AnimeGANv3) | ❌       | ❌      | ❌       | ❌      | ❌    | ❌       | ❌    |
+| Model                                   | From    | Code                                                   | Convert | IsWork | Desktop | Mobile | Wasm | Uni-app | loT  |
+| :-------------------------------------- | :------ | :----------------------------------------------------- | :------ | :----- | :------ | :----- | :--- | :------ | :--- |
+| [AnimeGanV3](style_transfer/animeganv3) | Onnx    | [link](https://github.com/TachibanaYoshino/AnimeGANv3) | ❌       | ❌      | ❌       | ❌      | ❌    | ❌       | ❌    |
+| [AnimeGanV2](style_transfer/animeganv2) | Pytorch | [link](https://github.com/bryandlee/animegan2-pytorch) | ✅       | ✅      | ✅       | ✅      | 🤔    | 🤔       | ⭕    |
 
 
 ### Action recognition
