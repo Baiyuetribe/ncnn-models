@@ -2,21 +2,18 @@ import os
 import torch
 # 0. pt模型下载及初始化
 model = torch.hub.load('ultralytics/yolov5', 'yolov5s')  # or yolov5n - yolov5x6, custom
-model.eval()
+model.train()  # -train
+model.cpu()
+# model.eval() --train
 
-x = torch.randn(1, 3, 640, 640)
-y = torch.randn(1, 3, 320, 320)
-
-model(x, y)
-# 1. pt-->torchscript
-traced_script_module = torch.jit.trace(model, (x, y))
+# 1. pt --> torchscript
+traced_script_module = torch.jit.trace(model, torch.randn(1, 3, 640, 640))
 traced_script_module.save("ts.pt")
 
 # 2. ts --> pnnx --> ncnn
-os.system("pnnx ts.pt inputshape=[1,3,640,640] inputshape2=[1,3,320,320]")
-# os.system("pnnx ts.pt")
+os.system("pnnx ts.pt inputshape=[1,3,640,640] inputshape2=[1,3,320,320] device=cpu")
 
-# 3. ncnn ---> optmize---->ncnn
+# 3. ncnn ---> optmize ----> ncnn
 os.system("ncnnoptimize ts.ncnn.param ts.ncnn.bin opt.param opt.bin 1")  # 数字0 代表fp32 ；1代表fp16
 
 # 如果急用，请参考nihui写的教程进行转换。------》https://zhuanlan.zhihu.com/p/471357671
