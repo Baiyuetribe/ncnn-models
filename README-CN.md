@@ -11,12 +11,13 @@ ncnn框架借助vulkan实现了跨设备部署，我们通过pytorch、tensorflo
 fork代码，然后按照如下格式提交，最好是c++20 的最小demo，不要内嵌并发。
 
 yolov5  # 项目名称
+- models/xx.bin or xx.param # model
 - input.png # 输入
 - out.png # 输出
 - README.md # 模型推理介绍、转换步骤
 - convert.py # 从pytorch等模型转换具体复现代码
 
-c++代码统一存放在C++目录。bin和param文件统一存放在models分支。灵感来自[ailia](https://github.com/axinc-ai/ailia-models)
+灵感来自[ailia](https://github.com/axinc-ai/ailia-models),鉴于接收失败案例为主，因此失败案例优先排序，成功案例分类排序。
 
 ### 一些代表
 
@@ -27,7 +28,10 @@ c++代码统一存放在C++目录。bin和param文件统一存放在models分支
 - [nihui](https://github.com/nihui/ncnn_on_esp32) ncnn在嵌入式设备上的应用
 - [nihui](https://github.com/nihui/ncnn-webassembly-yolov5) ncnn在wasm实现案例
 
-### 款设备的意义
+### 跨设备的意义
+
+> 维护一次代码，多设备可用
 
 - 借助vulkan，无需繁重的cuda驱动
-- 维护一次代码，多设备可用
+- 借助wasm实现任意设备的模型部署
+- 借助uni-app可绕过java实现多端部署

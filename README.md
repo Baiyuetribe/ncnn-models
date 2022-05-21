@@ -8,9 +8,27 @@ The ncnn framework enables cross-device deployment with the help of the vulkan a
 
 ### How to contribute
 
-![Contribute tutorial](contribute.md)
+[Contribute tutorial](contribute.md)
+
+	✅ : good to work
+    ❌ : bad to work
+    ⭕ : good to work, but not good to contribute
+    ❓ : not sure
+    🤔 : not sure, but good to contribute
+    🤷 : not sure, but bad to contribute
+    🤯 : not sure, but not good to contribute
+### Failure Notes
+
+> We believe we will succeed in the end.
+
+| Model                                   | From | Code                                                   | Convert | IsWork | Desktop | Mobile | Wasm | Uni-app | loT  |
+| :-------------------------------------- | :--- | :----------------------------------------------------- | :------ | :----- | :------ | :----- | :--- | :------ | :--- |
+| [AnimeGanV3](style_transfer/animeganv3) | Onnx | [link](https://github.com/TachibanaYoshino/AnimeGANv3) | ❌       | ❌      | ❌       | ❌      | ❌    | ❌       | ❌    |
+
 
 ### Action recognition
+
+> need to be contribute
 
 ### Background removal
 
@@ -27,6 +45,7 @@ The ncnn framework enables cross-device deployment with the help of the vulkan a
 ### Object tracking
 
 ### Style transfer
+
 
 ### Super resolution
 
