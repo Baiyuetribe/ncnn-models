@@ -1,8 +1,8 @@
-# AnimeGanV3
+# yolov5
 
 ## Input --> Output
 
-![](https://user-images.githubusercontent.com/26464535/142294796-54394a4a-a566-47a1-b9ab-4e715b901442.gif)
+![](https://github.com/ultralytics/yolov5/releases/download/v1.0/splash.jpg)
 
 ## Convert 
 
@@ -67,5 +67,6 @@ python export.py --weights yolov5s.pt --include torchscript --train
 ## Reference
 
 - [详细记录u版YOLOv5目标检测ncnn实现（第二版）](https://zhuanlan.zhihu.com/p/471357671)
+- [ultralytics/yolov5](https://github.com/ultralytics/yolov5)
 
 
