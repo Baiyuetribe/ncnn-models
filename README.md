@@ -23,6 +23,7 @@ The ncnn framework enables cross-device deployment with the help of the vulkan a
 
 | Model                                   | From    | Code                                                        | Convert | IsWork | Desktop | Mobile | Wasm | Uni-app | loT  |
 | :-------------------------------------- | :------ | :---------------------------------------------------------- | :------ | :----- | :------ | :----- | :--- | :------ | :--- |
+| [RVM](image_matting/RVM)                | Pytorch | [link](https://github.com/PeterL1n/RobustVideoMatting)      | ❌       | ✅      | ✅       | ✅      | ❌    | ❌       | ❌    |
 | [deoldify](image_inpainting/deoldify)   | Onnx    | [link](https://github.com/KeepGoing2019HaHa/AI-application) | ❌       | ✅      | 🤔       | ❌      | ❌    | ❌       | ❌    |
 | [AnimeGanV3](style_transfer/animeganv3) | Onnx    | [link](https://github.com/TachibanaYoshino/AnimeGANv3)      | ❌       | ❌      | ❌       | ❌      | ❌    | ❌       | ❌    |
 | [yolov5](objech_dection/yolov5)         | Pytorch | [link](https://github.com/ultralytics/yolov5)               | ⭕       | ✅      | ✅       | ✅      | ✅    | ✅       | ✅    |

@@ -26,6 +26,10 @@ os.system("pnnx ts.pt inputshape=[1,3,512,512]")
 os.system("ncnnoptimize ts.ncnn.param ts.ncnn.bin opt.param opt.bin 1")  # 数字0 代表fp32 ；1代表fp16
 ```
 
+## Example project
+
+- [Android: nihui/ncnn-android-styletransfer](https://github.com/nihui/ncnn-android-styletransfer)
+- [Desktop: baiyue/animegan_gui](https://github.com/Baiyuetribe/paper2gui/blob/main/Style%20Transfer/animegan_gui.md)  
 
 ## Reference
 
