@@ -21,11 +21,12 @@ The ncnn framework enables cross-device deployment with the help of the vulkan a
 
 > We believe we will succeed in the end.
 
-| Model                                   | From    | Code                                                   | Convert | IsWork | Desktop | Mobile | Wasm | Uni-app | loT  |
-| :-------------------------------------- | :------ | :----------------------------------------------------- | :------ | :----- | :------ | :----- | :--- | :------ | :--- |
-| [AnimeGanV3](style_transfer/animeganv3) | Onnx    | [link](https://github.com/TachibanaYoshino/AnimeGANv3) | ❌       | ❌      | ❌       | ❌      | ❌    | ❌       | ❌    |
-| [yolov5](objech_dection/yolov5)         | Pytorch | [link](https://github.com/ultralytics/yolov5)          | ⭕       | ✅      | ✅       | ✅      | ✅    | ✅       | ✅    |
-| [AnimeGanV2](style_transfer/animeganv2) | Pytorch | [link](https://github.com/bryandlee/animegan2-pytorch) | ✅       | ✅      | ✅       | ✅      | 🤔    | 🤔       | ⭕    |
+| Model                                   | From    | Code                                                        | Convert | IsWork | Desktop | Mobile | Wasm | Uni-app | loT  |
+| :-------------------------------------- | :------ | :---------------------------------------------------------- | :------ | :----- | :------ | :----- | :--- | :------ | :--- |
+| [deoldify](image_inpainting/deoldify)   | Onnx    | [link](https://github.com/KeepGoing2019HaHa/AI-application) | ❌       | ✅      | 🤔       | ❌      | ❌    | ❌       | ❌    |
+| [AnimeGanV3](style_transfer/animeganv3) | Onnx    | [link](https://github.com/TachibanaYoshino/AnimeGANv3)      | ❌       | ❌      | ❌       | ❌      | ❌    | ❌       | ❌    |
+| [yolov5](objech_dection/yolov5)         | Pytorch | [link](https://github.com/ultralytics/yolov5)               | ⭕       | ✅      | ✅       | ✅      | ✅    | ✅       | ✅    |
+| [AnimeGanV2](style_transfer/animeganv2) | Pytorch | [link](https://github.com/bryandlee/animegan2-pytorch)      | ✅       | ✅      | ✅       | ✅      | 🤔    | 🤔       | ⭕    |
 
 
 ### Action recognition

@@ -1,0 +1,2 @@
+该模型文件体积巨大，无法使用GitHub存储，bin文件下载地址：https://drive.google.com/drive/folders/1tywoozrH76DjSFNFhQGjnRzZGD1EPKm7
+param文件可使用现成的
