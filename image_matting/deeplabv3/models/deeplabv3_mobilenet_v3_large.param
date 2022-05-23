@@ -1,0 +1,133 @@
+7767517
+131 154
+Input                    input.1                  0 1 input.1
+Convolution              Conv_0                   1 1 input.1 onnx::Conv_366 0=16 1=3 3=2 4=1 5=1 6=432 9=6 -23310=2,1.666667e-01,5.000000e-01
+Split                    splitncnn_0              1 2 onnx::Conv_366 onnx::Conv_366_splitncnn_0 onnx::Conv_366_splitncnn_1
+ConvolutionDepthWise     Conv_3                   1 1 onnx::Conv_366_splitncnn_1 onnx::Conv_369 0=16 1=3 4=1 5=1 6=144 7=16 9=1
+Convolution              Conv_5                   1 1 onnx::Conv_369 onnx::Add_633 0=16 1=1 5=1 6=256
+BinaryOp                 Add_6                    2 1 onnx::Add_633 onnx::Conv_366_splitncnn_0 onnx::Conv_372
+Convolution              Conv_7                   1 1 onnx::Conv_372 onnx::Conv_375 0=64 1=1 5=1 6=1024 9=1
+ConvolutionDepthWise     Conv_9                   1 1 onnx::Conv_375 onnx::Conv_378 0=64 1=3 3=2 4=1 5=1 6=576 7=64 9=1
+Convolution              Conv_11                  1 1 onnx::Conv_378 input.40 0=24 1=1 5=1 6=1536
+Split                    splitncnn_1              1 2 input.40 input.40_splitncnn_0 input.40_splitncnn_1
+Convolution              Conv_12                  1 1 input.40_splitncnn_1 onnx::Conv_383 0=72 1=1 5=1 6=1728 9=1
+ConvolutionDepthWise     Conv_14                  1 1 onnx::Conv_383 onnx::Conv_386 0=72 1=3 4=1 5=1 6=648 7=72 9=1
+Convolution              Conv_16                  1 1 onnx::Conv_386 onnx::Add_651 0=24 1=1 5=1 6=1728
+BinaryOp                 Add_17                   2 1 onnx::Add_651 input.40_splitncnn_0 onnx::Conv_389
+Convolution              Conv_18                  1 1 onnx::Conv_389 onnx::Conv_392 0=72 1=1 5=1 6=1728 9=1
+ConvolutionDepthWise     Conv_20                  1 1 onnx::Conv_392 onnx::GlobalAveragePool_395 0=72 1=5 3=2 4=2 5=1 6=1800 7=72 9=1
+Split                    splitncnn_2              1 2 onnx::GlobalAveragePool_395 onnx::GlobalAveragePool_395_splitncnn_0 onnx::GlobalAveragePool_395_splitncnn_1
+Pooling                  GlobalAveragePool_22     1 1 onnx::GlobalAveragePool_395_splitncnn_1 input.80 0=1 4=1
+InnerProduct             Conv_23                  1 1 input.80 onnx::Conv_398 0=24 1=1 2=1728 9=1
+InnerProduct             Conv_25                  1 1 onnx::Conv_398 scale 0=72 1=1 2=1728
+HardSigmoid              HardSigmoid_26           1 1 scale onnx::Mul_400 0=1.666667e-01
+BinaryOp                 Mul_27                   2 1 onnx::Mul_400 onnx::GlobalAveragePool_395_splitncnn_0 input.88 0=2
+Convolution              Conv_28                  1 1 input.88 input.96 0=40 1=1 5=1 6=2880
+Split                    splitncnn_3              1 3 input.96 input.96_splitncnn_0 input.96_splitncnn_1 input.96_splitncnn_2
+Convolution              Conv_29                  1 1 input.96_splitncnn_2 onnx::Conv_406 0=120 1=1 5=1 6=4800 9=1
+ConvolutionDepthWise     Conv_31                  1 1 onnx::Conv_406 onnx::GlobalAveragePool_409 0=120 1=5 4=2 5=1 6=3000 7=120 9=1
+Split                    splitncnn_4              1 2 onnx::GlobalAveragePool_409 onnx::GlobalAveragePool_409_splitncnn_0 onnx::GlobalAveragePool_409_splitncnn_1
+Pooling                  GlobalAveragePool_33     1 1 onnx::GlobalAveragePool_409_splitncnn_1 input.116 0=1 4=1
+InnerProduct             Conv_34                  1 1 input.116 onnx::Conv_412 0=32 1=1 2=3840 9=1
+InnerProduct             Conv_36                  1 1 onnx::Conv_412 scale.3 0=120 1=1 2=3840
+HardSigmoid              HardSigmoid_37           1 1 scale.3 onnx::Mul_414 0=1.666667e-01
+BinaryOp                 Mul_38                   2 1 onnx::Mul_414 onnx::GlobalAveragePool_409_splitncnn_0 input.124 0=2
+Convolution              Conv_39                  1 1 input.124 onnx::Add_669 0=40 1=1 5=1 6=4800
+BinaryOp                 Add_40                   2 1 onnx::Add_669 input.96_splitncnn_1 onnx::Conv_418
+Split                    splitncnn_5              1 2 onnx::Conv_418 onnx::Conv_418_splitncnn_0 onnx::Conv_418_splitncnn_1
+Convolution              Conv_41                  1 1 onnx::Conv_418_splitncnn_1 onnx::Conv_421 0=120 1=1 5=1 6=4800 9=1
+ConvolutionDepthWise     Conv_43                  1 1 onnx::Conv_421 onnx::GlobalAveragePool_424 0=120 1=5 4=2 5=1 6=3000 7=120 9=1
+Split                    splitncnn_6              1 2 onnx::GlobalAveragePool_424 onnx::GlobalAveragePool_424_splitncnn_0 onnx::GlobalAveragePool_424_splitncnn_1
+Pooling                  GlobalAveragePool_45     1 1 onnx::GlobalAveragePool_424_splitncnn_1 input.148 0=1 4=1
+InnerProduct             Conv_46                  1 1 input.148 onnx::Conv_427 0=32 1=1 2=3840 9=1
+InnerProduct             Conv_48                  1 1 onnx::Conv_427 scale.7 0=120 1=1 2=3840
+HardSigmoid              HardSigmoid_49           1 1 scale.7 onnx::Mul_429 0=1.666667e-01
+BinaryOp                 Mul_50                   2 1 onnx::Mul_429 onnx::GlobalAveragePool_424_splitncnn_0 input.156 0=2
+Convolution              Conv_51                  1 1 input.156 onnx::Add_678 0=40 1=1 5=1 6=4800
+BinaryOp                 Add_52                   2 1 onnx::Add_678 onnx::Conv_418_splitncnn_0 onnx::Conv_433
+Convolution              Conv_53                  1 1 onnx::Conv_433 onnx::Conv_437 0=240 1=1 5=1 6=9600 9=6 -23310=2,1.666667e-01,5.000000e-01
+ConvolutionDepthWise     Conv_56                  1 1 onnx::Conv_437 onnx::Conv_441 0=240 1=3 3=2 4=1 5=1 6=2160 7=240 9=6 -23310=2,1.666667e-01,5.000000e-01
+Convolution              Conv_59                  1 1 onnx::Conv_441 input.184 0=80 1=1 5=1 6=19200
+Split                    splitncnn_7              1 2 input.184 input.184_splitncnn_0 input.184_splitncnn_1
+Convolution              Conv_60                  1 1 input.184_splitncnn_1 onnx::Conv_447 0=200 1=1 5=1 6=16000 9=6 -23310=2,1.666667e-01,5.000000e-01
+ConvolutionDepthWise     Conv_63                  1 1 onnx::Conv_447 onnx::Conv_451 0=200 1=3 4=1 5=1 6=1800 7=200 9=6 -23310=2,1.666667e-01,5.000000e-01
+Convolution              Conv_66                  1 1 onnx::Conv_451 onnx::Add_696 0=80 1=1 5=1 6=16000
+BinaryOp                 Add_67                   2 1 onnx::Add_696 input.184_splitncnn_0 onnx::Conv_454
+Split                    splitncnn_8              1 2 onnx::Conv_454 onnx::Conv_454_splitncnn_0 onnx::Conv_454_splitncnn_1
+Convolution              Conv_68                  1 1 onnx::Conv_454_splitncnn_1 onnx::Conv_458 0=184 1=1 5=1 6=14720 9=6 -23310=2,1.666667e-01,5.000000e-01
+ConvolutionDepthWise     Conv_71                  1 1 onnx::Conv_458 onnx::Conv_462 0=184 1=3 4=1 5=1 6=1656 7=184 9=6 -23310=2,1.666667e-01,5.000000e-01
+Convolution              Conv_74                  1 1 onnx::Conv_462 onnx::Add_705 0=80 1=1 5=1 6=14720
+BinaryOp                 Add_75                   2 1 onnx::Add_705 onnx::Conv_454_splitncnn_0 onnx::Conv_465
+Split                    splitncnn_9              1 2 onnx::Conv_465 onnx::Conv_465_splitncnn_0 onnx::Conv_465_splitncnn_1
+Convolution              Conv_76                  1 1 onnx::Conv_465_splitncnn_1 onnx::Conv_469 0=184 1=1 5=1 6=14720 9=6 -23310=2,1.666667e-01,5.000000e-01
+ConvolutionDepthWise     Conv_79                  1 1 onnx::Conv_469 onnx::Conv_473 0=184 1=3 4=1 5=1 6=1656 7=184 9=6 -23310=2,1.666667e-01,5.000000e-01
+Convolution              Conv_82                  1 1 onnx::Conv_473 onnx::Add_714 0=80 1=1 5=1 6=14720
+BinaryOp                 Add_83                   2 1 onnx::Add_714 onnx::Conv_465_splitncnn_0 onnx::Conv_476
+Convolution              Conv_84                  1 1 onnx::Conv_476 onnx::Conv_480 0=480 1=1 5=1 6=38400 9=6 -23310=2,1.666667e-01,5.000000e-01
+ConvolutionDepthWise     Conv_87                  1 1 onnx::Conv_480 onnx::GlobalAveragePool_484 0=480 1=3 4=1 5=1 6=4320 7=480 9=6 -23310=2,1.666667e-01,5.000000e-01
+Split                    splitncnn_10             1 2 onnx::GlobalAveragePool_484 onnx::GlobalAveragePool_484_splitncnn_0 onnx::GlobalAveragePool_484_splitncnn_1
+Pooling                  GlobalAveragePool_90     1 1 onnx::GlobalAveragePool_484_splitncnn_1 input.264 0=1 4=1
+InnerProduct             Conv_91                  1 1 input.264 onnx::Conv_487 0=120 1=1 2=57600 9=1
+InnerProduct             Conv_93                  1 1 onnx::Conv_487 scale.11 0=480 1=1 2=57600
+HardSigmoid              HardSigmoid_94           1 1 scale.11 onnx::Mul_489 0=1.666667e-01
+BinaryOp                 Mul_95                   2 1 onnx::Mul_489 onnx::GlobalAveragePool_484_splitncnn_0 input.272 0=2
+Convolution              Conv_96                  1 1 input.272 input.280 0=112 1=1 5=1 6=53760
+Split                    splitncnn_11             1 2 input.280 input.280_splitncnn_0 input.280_splitncnn_1
+Convolution              Conv_97                  1 1 input.280_splitncnn_1 onnx::Conv_496 0=672 1=1 5=1 6=75264 9=6 -23310=2,1.666667e-01,5.000000e-01
+ConvolutionDepthWise     Conv_100                 1 1 onnx::Conv_496 onnx::GlobalAveragePool_500 0=672 1=3 4=1 5=1 6=6048 7=672 9=6 -23310=2,1.666667e-01,5.000000e-01
+Split                    splitncnn_12             1 2 onnx::GlobalAveragePool_500 onnx::GlobalAveragePool_500_splitncnn_0 onnx::GlobalAveragePool_500_splitncnn_1
+Pooling                  GlobalAveragePool_103    1 1 onnx::GlobalAveragePool_500_splitncnn_1 input.300 0=1 4=1
+InnerProduct             Conv_104                 1 1 input.300 onnx::Conv_503 0=168 1=1 2=112896 9=1
+InnerProduct             Conv_106                 1 1 onnx::Conv_503 scale.15 0=672 1=1 2=112896
+HardSigmoid              HardSigmoid_107          1 1 scale.15 onnx::Mul_505 0=1.666667e-01
+BinaryOp                 Mul_108                  2 1 onnx::Mul_505 onnx::GlobalAveragePool_500_splitncnn_0 input.308 0=2
+Convolution              Conv_109                 1 1 input.308 onnx::Add_732 0=112 1=1 5=1 6=75264
+BinaryOp                 Add_110                  2 1 onnx::Add_732 input.280_splitncnn_0 onnx::Conv_509
+Convolution              Conv_111                 1 1 onnx::Conv_509 onnx::Conv_513 0=672 1=1 5=1 6=75264 9=6 -23310=2,1.666667e-01,5.000000e-01
+ConvolutionDepthWise     Conv_114                 1 1 onnx::Conv_513 onnx::GlobalAveragePool_517 0=672 1=5 2=2 4=4 5=1 6=16800 7=672 9=6 -23310=2,1.666667e-01,5.000000e-01
+Split                    splitncnn_13             1 2 onnx::GlobalAveragePool_517 onnx::GlobalAveragePool_517_splitncnn_0 onnx::GlobalAveragePool_517_splitncnn_1
+Pooling                  GlobalAveragePool_117    1 1 onnx::GlobalAveragePool_517_splitncnn_1 input.332 0=1 4=1
+InnerProduct             Conv_118                 1 1 input.332 onnx::Conv_520 0=168 1=1 2=112896 9=1
+InnerProduct             Conv_120                 1 1 onnx::Conv_520 scale.19 0=672 1=1 2=112896
+HardSigmoid              HardSigmoid_121          1 1 scale.19 onnx::Mul_522 0=1.666667e-01
+BinaryOp                 Mul_122                  2 1 onnx::Mul_522 onnx::GlobalAveragePool_517_splitncnn_0 input.340 0=2
+Convolution              Conv_123                 1 1 input.340 input.348 0=160 1=1 5=1 6=107520
+Split                    splitncnn_14             1 2 input.348 input.348_splitncnn_0 input.348_splitncnn_1
+Convolution              Conv_124                 1 1 input.348_splitncnn_1 onnx::Conv_529 0=960 1=1 5=1 6=153600 9=6 -23310=2,1.666667e-01,5.000000e-01
+ConvolutionDepthWise     Conv_127                 1 1 onnx::Conv_529 onnx::GlobalAveragePool_533 0=960 1=5 2=2 4=4 5=1 6=24000 7=960 9=6 -23310=2,1.666667e-01,5.000000e-01
+Split                    splitncnn_15             1 2 onnx::GlobalAveragePool_533 onnx::GlobalAveragePool_533_splitncnn_0 onnx::GlobalAveragePool_533_splitncnn_1
+Pooling                  GlobalAveragePool_130    1 1 onnx::GlobalAveragePool_533_splitncnn_1 input.368 0=1 4=1
+InnerProduct             Conv_131                 1 1 input.368 onnx::Conv_536 0=240 1=1 2=230400 9=1
+InnerProduct             Conv_133                 1 1 onnx::Conv_536 scale.23 0=960 1=1 2=230400
+HardSigmoid              HardSigmoid_134          1 1 scale.23 onnx::Mul_538 0=1.666667e-01
+BinaryOp                 Mul_135                  2 1 onnx::Mul_538 onnx::GlobalAveragePool_533_splitncnn_0 input.376 0=2
+Convolution              Conv_136                 1 1 input.376 onnx::Add_750 0=160 1=1 5=1 6=153600
+BinaryOp                 Add_137                  2 1 onnx::Add_750 input.348_splitncnn_0 onnx::Conv_542
+Split                    splitncnn_16             1 2 onnx::Conv_542 onnx::Conv_542_splitncnn_0 onnx::Conv_542_splitncnn_1
+Convolution              Conv_138                 1 1 onnx::Conv_542_splitncnn_1 onnx::Conv_546 0=960 1=1 5=1 6=153600 9=6 -23310=2,1.666667e-01,5.000000e-01
+ConvolutionDepthWise     Conv_141                 1 1 onnx::Conv_546 onnx::GlobalAveragePool_550 0=960 1=5 2=2 4=4 5=1 6=24000 7=960 9=6 -23310=2,1.666667e-01,5.000000e-01
+Split                    splitncnn_17             1 2 onnx::GlobalAveragePool_550 onnx::GlobalAveragePool_550_splitncnn_0 onnx::GlobalAveragePool_550_splitncnn_1
+Pooling                  GlobalAveragePool_144    1 1 onnx::GlobalAveragePool_550_splitncnn_1 input.400 0=1 4=1
+InnerProduct             Conv_145                 1 1 input.400 onnx::Conv_553 0=240 1=1 2=230400 9=1
+InnerProduct             Conv_147                 1 1 onnx::Conv_553 scale.27 0=960 1=1 2=230400
+HardSigmoid              HardSigmoid_148          1 1 scale.27 onnx::Mul_555 0=1.666667e-01
+BinaryOp                 Mul_149                  2 1 onnx::Mul_555 onnx::GlobalAveragePool_550_splitncnn_0 input.408 0=2
+Convolution              Conv_150                 1 1 input.408 onnx::Add_759 0=160 1=1 5=1 6=153600
+BinaryOp                 Add_151                  2 1 onnx::Add_759 onnx::Conv_542_splitncnn_0 onnx::Conv_559
+Convolution              Conv_152                 1 1 onnx::Conv_559 onnx::Conv_563 0=960 1=1 5=1 6=153600 9=6 -23310=2,1.666667e-01,5.000000e-01
+Split                    splitncnn_18             1 5 onnx::Conv_563 onnx::Conv_563_splitncnn_0 onnx::Conv_563_splitncnn_1 onnx::Conv_563_splitncnn_2 onnx::Conv_563_splitncnn_3 onnx::Conv_563_splitncnn_4
+Convolution              Conv_155                 1 1 onnx::Conv_563_splitncnn_4 onnx::Concat_566 0=256 1=1 5=1 6=245760 9=1
+Convolution              Conv_157                 1 1 onnx::Conv_563_splitncnn_3 onnx::Concat_569 0=256 1=3 2=12 4=12 5=1 6=2211840 9=1
+Convolution              Conv_159                 1 1 onnx::Conv_563_splitncnn_2 onnx::Concat_572 0=256 1=3 2=24 4=24 5=1 6=2211840 9=1
+Convolution              Conv_161                 1 1 onnx::Conv_563_splitncnn_1 onnx::Concat_575 0=256 1=3 2=36 4=36 5=1 6=2211840 9=1
+Pooling                  GlobalAveragePool_163    1 1 onnx::Conv_563_splitncnn_0 input.456 0=1 4=1
+InnerProduct             Conv_164                 1 1 input.456 x 0=256 1=1 2=245760 9=1
+Interp                   Upsample_172             1 1 x onnx::Concat_592 0=2 1=1.400000e+01 2=1.400000e+01
+Concat                   Concat_173               5 1 onnx::Concat_566 onnx::Concat_569 onnx::Concat_572 onnx::Concat_575 onnx::Concat_592 input.468
+Convolution              Conv_174                 1 1 input.468 input.480 0=256 1=1 5=1 6=327680 9=1
+Convolution              Conv_176                 1 1 input.480 input.492 0=256 1=3 4=1 5=1 6=589824 9=1
+Convolution              Conv_178                 1 1 input.492 x.3 0=21 1=1 5=1 6=5376
+Interp                   Upsample_185             1 1 x.3 611 0=2 1=1.600000e+01 2=1.600000e+01
+Convolution              Conv_186                 1 1 input.96_splitncnn_0 input.504 0=10 1=3 4=1 5=1 6=3600 9=1
+Convolution              Conv_188                 1 1 input.504 x.7 0=21 1=1 5=1 6=210
+Interp                   Upsample_195             1 1 x.7 626 0=2 1=8.000000e+00 2=8.000000e+00
