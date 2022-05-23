@@ -29,6 +29,7 @@ The ncnn framework enables cross-device deployment with the help of the vulkan a
 | [yolov5](objech_dection/yolov5)           | Pytorch | [link](https://github.com/ultralytics/yolov5)                       | ⭕       | ✅      | ✅       | ✅      | ✅    | ✅       | ✅    |
 | [AnimeGanV2](style_transfer/animeganv2)   | Pytorch | [link](https://github.com/bryandlee/animegan2-pytorch)              | ✅       | ✅      | ✅       | ✅      | 🤔    | 🤔       | ⭕    |
 | [deeplabv3](image_matting/deeplabv3)      | Pytorch | [link](https://pytorch.org/hub/pytorch_vision_deeplabv3_resnet101/) | ✅       | ✅      | ✅       | 🤔      | 🤔    | 🤔       | ❌    |
+| [DenseNet](image_classification/densenet) | Pytorch | [link](https://pytorch.org/hub/pytorch_vision_densenet)             | ✅       | ✅      | ✅       | 🤔      | 🤔    | 🤔       | ❌    |
 | [resnet18](image_classification/resnet18) | Pytorch | [link](https://pytorch.org/hub/pytorch_vision_resnet)               | ✅       | ✅      | ✅       | 🤔      | 🤔    | 🤔       | ❌    |
 
 ### Action recognition
