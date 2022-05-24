@@ -26,6 +26,7 @@ The ncnn framework enables cross-device deployment with the help of the vulkan a
 | [RVM](image_matting/RVM)                          | Pytorch | [link](https://github.com/PeterL1n/RobustVideoMatting)              | ❌       | ✅      | ✅       | ✅      | ❌    | ❌       | ❌    |
 | [deoldify](image_inpainting/deoldify)             | Onnx    | [link](https://github.com/KeepGoing2019HaHa/AI-application)         | ❌       | ✅      | 🤔       | ❌      | ❌    | ❌       | ❌    |
 | [AnimeGanV3](style_transfer/animeganv3)           | Onnx    | [link](https://github.com/TachibanaYoshino/AnimeGANv3)              | ❌       | ❌      | ❌       | ❌      | ❌    | ❌       | ❌    |
+| [HybridNets](objech_dection/hybridnets)           | Pytorch | [link](https://github.com/datvuthanh/HybridNets)                    | ❌       | ❌      | ❌       | ❌      | ❌    | ❌       | ❌    |
 | [yolop](objech_dection/yolop)                     | Pytorch | [link](https://github.com/hustvl/YOLOP)                             | ❌       | 🤔      | ✅       | ✅      | ❌    | ❌       | ❌    |
 | [yolov5](objech_dection/yolov5)                   | Pytorch | [link](https://github.com/ultralytics/yolov5)                       | ⭕       | ✅      | ✅       | ✅      | ✅    | ✅       | ✅    |
 | [AnimeGanV2](style_transfer/animeganv2)           | Pytorch | [link](https://github.com/bryandlee/animegan2-pytorch)              | ✅       | ✅      | ✅       | ✅      | 🤔    | 🤔       | ⭕    |
@@ -33,6 +34,7 @@ The ncnn framework enables cross-device deployment with the help of the vulkan a
 | [DenseNet](image_classification/denseNet)         | Pytorch | [link](https://pytorch.org/hub/pytorch_vision_densenet)             | ✅       | ✅      | ✅       | 🤔      | 🤔    | 🤔       | ❌    |
 | [resnet18](image_classification/resnet18)         | Pytorch | [link](https://pytorch.org/hub/pytorch_vision_resnet)               | ✅       | ✅      | ✅       | 🤔      | 🤔    | 🤔       | ❌    |
 | [mobilenet_v2](image_classification/mobilenet_v2) | Pytorch | [link](https://pytorch.org/hub/pytorch_vision_mobilenet_v2/)        | ✅       | ✅      | ✅       | 🤔      | 🤔    | 🤔       | ❌    |
+
 
 ### Action recognition
 
