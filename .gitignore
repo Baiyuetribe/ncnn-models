@@ -1,3 +1,5 @@
+# ignore vscode
+.vscode
 # ignore large file
 deoldify.256.bin
 deeplabv3_resnet50.bin

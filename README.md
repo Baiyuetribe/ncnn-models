@@ -21,20 +21,21 @@ The ncnn framework enables cross-device deployment with the help of the vulkan a
 
 > We believe we will succeed in the end.
 
-| Model                                             | From    | Code                                                                | Convert | IsWork | Desktop | Mobile | Wasm | Uni-app | loT  |
-| :------------------------------------------------ | :------ | :------------------------------------------------------------------ | :------ | :----- | :------ | :----- | :--- | :------ | :--- |
-| [RVM](image_matting/RVM)                          | Pytorch | [link](https://github.com/PeterL1n/RobustVideoMatting)              | ❌       | ✅      | ✅       | ✅      | ❌    | ❌       | ❌    |
-| [deoldify](image_inpainting/deoldify)             | Onnx    | [link](https://github.com/KeepGoing2019HaHa/AI-application)         | ❌       | ✅      | 🤔       | ❌      | ❌    | ❌       | ❌    |
-| [AnimeGanV3](style_transfer/animeganv3)           | Onnx    | [link](https://github.com/TachibanaYoshino/AnimeGANv3)              | ❌       | ❌      | ❌       | ❌      | ❌    | ❌       | ❌    |
-| [HybridNets](objech_dection/hybridnets)           | Pytorch | [link](https://github.com/datvuthanh/HybridNets)                    | ❌       | ❌      | ❌       | ❌      | ❌    | ❌       | ❌    |
-| [yolop](objech_dection/yolop)                     | Pytorch | [link](https://github.com/hustvl/YOLOP)                             | ❌       | 🤔      | ✅       | ✅      | ❌    | ❌       | ❌    |
-| [yolov5](objech_dection/yolov5)                   | Pytorch | [link](https://github.com/ultralytics/yolov5)                       | ⭕       | ✅      | ✅       | ✅      | ✅    | ✅       | ✅    |
-| [AnimeGanV2](style_transfer/animeganv2)           | Pytorch | [link](https://github.com/bryandlee/animegan2-pytorch)              | ✅       | ✅      | ✅       | ✅      | 🤔    | 🤔       | ⭕    |
-| [deeplabv3](image_matting/deeplabv3)              | Pytorch | [link](https://pytorch.org/hub/pytorch_vision_deeplabv3_resnet101/) | ✅       | ✅      | ✅       | 🤔      | 🤔    | 🤔       | ❌    |
-| [DenseNet](image_classification/denseNet)         | Pytorch | [link](https://pytorch.org/hub/pytorch_vision_densenet)             | ✅       | ✅      | ✅       | 🤔      | 🤔    | 🤔       | ❌    |
-| [resnet18](image_classification/resnet18)         | Pytorch | [link](https://pytorch.org/hub/pytorch_vision_resnet)               | ✅       | ✅      | ✅       | 🤔      | 🤔    | 🤔       | ❌    |
-| [mobilenet_v2](image_classification/mobilenet_v2) | Pytorch | [link](https://pytorch.org/hub/pytorch_vision_mobilenet_v2/)        | ✅       | ✅      | ✅       | 🤔      | 🤔    | 🤔       | ❌    |
-| [nanodet](objech_dection/nanodet)                 | Onnx    | [link](https://github.com/RangiLyu/nanodet)                         | ✅       | ✅      | ✅       | ✅      | ✅    | 🤔       | 🤔    |
+| Model                                             | From    | Code                                                                          | Convert | IsWork | Desktop | Mobile | Wasm | Uni-app | loT  |
+| :------------------------------------------------ | :------ | :---------------------------------------------------------------------------- | :------ | :----- | :------ | :----- | :--- | :------ | :--- |
+| [RVM](image_matting/RVM)                          | Pytorch | [link](https://github.com/PeterL1n/RobustVideoMatting)                        | ❌       | ✅      | ✅       | ✅      | ❌    | ❌       | ❌    |
+| [deoldify](image_inpainting/deoldify)             | Onnx    | [link](https://github.com/KeepGoing2019HaHa/AI-application)                   | ❌       | ✅      | 🤔       | ❌      | ❌    | ❌       | ❌    |
+| [AnimeGanV3](style_transfer/animeganv3)           | Onnx    | [link](https://github.com/TachibanaYoshino/AnimeGANv3)                        | ❌       | ❌      | ❌       | ❌      | ❌    | ❌       | ❌    |
+| [HybridNets](objech_dection/hybridnets)           | Pytorch | [link](https://github.com/datvuthanh/HybridNets)                              | ❌       | ❌      | ❌       | ❌      | ❌    | ❌       | ❌    |
+| [yolop](objech_dection/yolop)                     | Pytorch | [link](https://github.com/hustvl/YOLOP)                                       | ❌       | 🤔      | ✅       | ✅      | ❌    | ❌       | ❌    |
+| [yolov5](objech_dection/yolov5)                   | Pytorch | [link](https://github.com/ultralytics/yolov5)                                 | ⭕       | ✅      | ✅       | ✅      | ✅    | ✅       | ✅    |
+| [AnimeGanV2](style_transfer/animeganv2)           | Pytorch | [link](https://github.com/bryandlee/animegan2-pytorch)                        | ✅       | ✅      | ✅       | ✅      | 🤔    | 🤔       | ⭕    |
+| [deeplabv3](image_matting/deeplabv3)              | Pytorch | [link](https://pytorch.org/hub/pytorch_vision_deeplabv3_resnet101/)           | ✅       | ✅      | ✅       | 🤔      | 🤔    | 🤔       | ❌    |
+| [DenseNet](image_classification/denseNet)         | Pytorch | [link](https://pytorch.org/hub/pytorch_vision_densenet)                       | ✅       | ✅      | ✅       | 🤔      | 🤔    | 🤔       | ❌    |
+| [resnet18](image_classification/resnet18)         | Pytorch | [link](https://pytorch.org/hub/pytorch_vision_resnet)                         | ✅       | ✅      | ✅       | 🤔      | 🤔    | 🤔       | ❌    |
+| [mobilenet_v2](image_classification/mobilenet_v2) | Pytorch | [link](https://pytorch.org/hub/pytorch_vision_mobilenet_v2/)                  | ✅       | ✅      | ✅       | 🤔      | 🤔    | 🤔       | ❌    |
+| [nanodet](objech_dection/nanodet)                 | Onnx    | [link](https://github.com/RangiLyu/nanodet)                                   | ✅       | ✅      | ✅       | ✅      | ✅    | 🤔       | 🤔    |
+| [UltraFace](face_dection/ultraface)               | Pytorch | [link](https://github.com/Linzaer/Ultra-Light-Fast-Generic-Face-Detector-1MB) | ✅       | ✅      | ✅       | ✅      | ✅    | 🤔       | ✅    |
 
 
 ### Action recognition
