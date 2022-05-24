@@ -34,7 +34,7 @@ The ncnn framework enables cross-device deployment with the help of the vulkan a
 | [DenseNet](image_classification/denseNet)         | Pytorch | [link](https://pytorch.org/hub/pytorch_vision_densenet)             | ✅       | ✅      | ✅       | 🤔      | 🤔    | 🤔       | ❌    |
 | [resnet18](image_classification/resnet18)         | Pytorch | [link](https://pytorch.org/hub/pytorch_vision_resnet)               | ✅       | ✅      | ✅       | 🤔      | 🤔    | 🤔       | ❌    |
 | [mobilenet_v2](image_classification/mobilenet_v2) | Pytorch | [link](https://pytorch.org/hub/pytorch_vision_mobilenet_v2/)        | ✅       | ✅      | ✅       | 🤔      | 🤔    | 🤔       | ❌    |
-| [nanodet](image_classification/nanodet)           | Onnx    | [link](https://github.com/RangiLyu/nanodet)                         | ✅       | ✅      | ✅       | ✅      | ✅    | 🤔       | 🤔    |
+| [nanodet](objech_dection/nanodet)                 | Onnx    | [link](https://github.com/RangiLyu/nanodet)                         | ✅       | ✅      | ✅       | ✅      | ✅    | 🤔       | 🤔    |
 
 
 ### Action recognition
