@@ -4,7 +4,7 @@ The collection of pre-trained AI models, and how they were converted, deployed.
 
 ### 关于
 
-ncnn框架借助vulkan实现了跨设备部署，我们通过pytorch、tensorflow、飞桨等预训练模型，然后转换成ncnn模型，实现Windows、mac、linux、安卓、ios、WebAssembly 以及uni-app的最终部署。然而模型转换并不是一键的，需要手动处理。为了拓展ncnn的边界应用，我们建立此仓库，接收任何转换成功或失败的案例。
+ncnn框架借助vulkan实现了全平台部署，我们通过pytorch、tensorflow、飞桨等预训练模型，然后转换成ncnn通用模型，实现Windows、mac、linux、安卓、ios、WebAssembly 以及uni-app的最终部署。然而模型转换并不是一键的，需要手动处理。为了拓展ncnn的边界应用，我们建立此仓库，欢迎提交接收任何转换成功或失败的案例。
 
 ### 如何参与贡献？
 
@@ -14,7 +14,7 @@ yolov5  # 项目名称
 - models/xx.bin or xx.param # model
 - input.png # 输入
 - out.png # 输出
-- README.md # 模型推理介绍、转换步骤
+- README.md # 模型推理介绍、转换步骤、相关案例
 - convert.py # 从pytorch等模型转换具体复现代码
 
 灵感来自[ailia](https://github.com/axinc-ai/ailia-models),鉴于接收失败案例为主，因此失败案例优先排序，成功案例分类排序。

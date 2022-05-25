@@ -24,8 +24,6 @@ traced_script_module.save("ts.pt")
 # 2. ts --> pnnx --> ncnn
 os.system("pnnx ts.pt inputshape=[1,3,640,640] inputshape2=[1,3,320,320] device=cpu")
 
-# 3. ncnn ---> optmize ----> ncnn
-os.system("ncnnoptimize ts.ncnn.param ts.ncnn.bin opt.param opt.bin 1")  # 数字0 代表fp32 ；1代表fp16
 ```
 报错内容如下：
 ```log
@@ -53,6 +51,15 @@ model has custom layer, estimate_memory_footprint skipped
 c++运行后报错：
 ```
 layer aten::type_as not exists or registered
+```
+param异常：
+```log
+7767517
+133 151
+Input                    in0                      0 1 in0
+MemoryData               model.model.model.0.conv 0 1 1 0=6 1=6 11=3 2=32
+aten::type_as            pnnx_8                   2 1 in0 1 2
+Convolution              conv_0                   1 1 2 3 0=32 1=6 11=6 12=1 13=2 14=2 2=1 3=2 4=2 5=1 6=3456
 ```
 
 成功案例：
