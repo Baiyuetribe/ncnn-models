@@ -36,9 +36,11 @@ The ncnn framework enables cross-device deployment with the help of the vulkan a
 | [DenseNet](image_classification/denseNet)         | 2018 | Pytorch | [link](https://pytorch.org/hub/pytorch_vision_densenet)                               | ✅       | ✅      | ✅       | 🤔      | 🤔    | 🤔       |      |
 | [resnet18](image_classification/resnet18)         | 2015 | Pytorch | [link](https://pytorch.org/hub/pytorch_vision_resnet)                                 | ✅       | ✅      | ✅       | 🤔      | 🤔    | 🤔       |      |
 | [mobilenet_v2](image_classification/mobilenet_v2) | 2019 | Pytorch | [link](https://pytorch.org/hub/pytorch_vision_mobilenet_v2/)                          | ✅       | ✅      | ✅       | 🤔      | 🤔    | 🤔       |      |
+| [mobilenet_v3](image_classification/mobilenet_v3) | 2019 | Pytorch | [link](https://rwightman.github.io/pytorch-image-models/models/mobilenet-v3/)         | ✅       | ✅      | ✅       | 🤔      | 🤔    | 🤔       |      |
 | [nanodet](objech_dection/nanodet)                 | 2020 | Onnx    | [link](https://github.com/RangiLyu/nanodet)                                           | ✅       | ✅      | ✅       | ✅      | ✅    | 🤔       | 🤔    |
 | [UltraFace](face_dection/ultraface)               | 2019 | Pytorch | [link](https://github.com/Linzaer/Ultra-Light-Fast-Generic-Face-Detector-1MB)         | ✅       | ✅      | ✅       | ✅      | ✅    | 🤔       | ✅    |
 | [efficientnet](image_classification/efficientnet) | 2021 | Pytorch | [link](https://github.com/rwightman/pytorch-image-models/blob/master/docs/results.md) | ✅       | ✅      | ✅       |        |      |         |      |
+
 
 
 ### Action recognition
