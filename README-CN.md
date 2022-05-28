@@ -2,6 +2,8 @@
 
 The collection of pre-trained AI models, and how they were converted, deployed.
 
+![](docs/images/logo.png)
+
 ### 关于
 
 ncnn框架借助vulkan实现了全平台部署，我们通过pytorch、tensorflow、飞桨等预训练模型，然后转换成ncnn通用模型，实现Windows、mac、linux、安卓、ios、WebAssembly 以及uni-app的最终部署。然而模型转换并不是一键的，需要手动处理。为了拓展ncnn的边界应用，我们建立此仓库，欢迎提交接收任何转换成功或失败的案例。
