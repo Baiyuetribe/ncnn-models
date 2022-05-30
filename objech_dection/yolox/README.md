@@ -30,10 +30,18 @@ os.system("pnnx ts.pt inputshape=[1,3,416,416]")  # nano 和tiny输入尺寸为4
 Input                    in0                      0 1 in0
 YoloV5Focus              focus                    1 1 in0 9
 ```
-
-## IsWork?
-
-运行后，有结果输出，但后处理无反应
+结尾也是一个Contact层，补加一层Permute.
+改前：
+```ruby
+Concat                   cat_17                   3 1 313 314 315 out0 0=1
+```
+改后：
+```ruby
+Concat                   cat_17                   3 1 313 314 315 316 0=1
+Permute                  Transpose_333            1 1 316 out0 0=1
+```
+为什么加这一层？暂不清楚。不加之前输出out0.shape: 8400 85 1 2 原始加上Permute后结果是：85 8400 1 2。
+也许不需要这一层处理，但要变更下后处理，个人尝试简单替换w、h是无效的。
 
 ## Example project
 

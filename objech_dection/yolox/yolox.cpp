@@ -1,17 +1,3 @@
-// This file is wirtten base on the following file:
-// https://github.com/Tencent/ncnn/blob/master/examples/yolov5.cpp
-// Copyright (C) 2020 THL A29 Limited, a Tencent company. All rights reserved.
-// Licensed under the BSD 3-Clause License (the "License"); you may not use this file except
-// in compliance with the License. You may obtain a copy of the License at
-//
-// https://opensource.org/licenses/BSD-3-Clause
-//
-// Unless required by applicable law or agreed to in writing, software distributed
-// under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
-// CONDITIONS OF ANY KIND, either express or implied. See the License for the
-// specific language governing permissions and limitations under the License.
-// ------------------------------------------------------------------------------
-// Copyright (C) 2020-2021, Megvii Inc. All rights reserved.
 // ncnn
 #include "layer.h"
 #include "net.h"
@@ -19,12 +5,13 @@
 #include <opencv2/core/core.hpp>
 #include <opencv2/highgui/highgui.hpp>
 #include <opencv2/imgproc/imgproc.hpp>
-#include <iostream>
+
 #include <vector>
+#include <iostream>
 
 #define YOLOX_NMS_THRESH 0.45  // nms threshold
 #define YOLOX_CONF_THRESH 0.25 // threshold of bounding box prob
-#define YOLOX_TARGET_SIZE 416  // tiny和nano为416，其余为640
+#define YOLOX_TARGET_SIZE 640  // target image size after resize, might use 416 for small model
 
 // YOLOX use the same focus in yolov5
 class YoloV5Focus : public ncnn::Layer
@@ -246,16 +233,15 @@ static void generate_yolox_proposals(std::vector<GridAndStride> grid_strides, co
 
 static int detect_yolox(const cv::Mat &bgr, std::vector<Object> &objects)
 {
-    ncnn::Net net;
+    ncnn::Net yolox;
 
-    net.opt.use_vulkan_compute = true;
-    // yolox.opt.use_bf16_storage = true;
+    yolox.opt.use_vulkan_compute = true;
 
     // Focus in yolov5
-    net.register_custom_layer("YoloV5Focus", YoloV5Focus_layer_creator);
+    yolox.register_custom_layer("YoloV5Focus", YoloV5Focus_layer_creator);
 
-    net.load_param("models/yolox_nano.param");
-    net.load_model("models/yolox_nano.bin");
+    yolox.load_param("models/yolox_nano.param"); // yolox_s
+    yolox.load_model("models/yolox_nano.bin");
 
     int img_w = bgr.cols;
     int img_h = bgr.rows;
@@ -285,7 +271,7 @@ static int detect_yolox(const cv::Mat &bgr, std::vector<Object> &objects)
     // which means users don't need to extra padding info to decode boxes coordinate.
     ncnn::copy_make_border(in, in_pad, 0, hpad, 0, wpad, ncnn::BORDER_CONSTANT, 114.f);
 
-    ncnn::Extractor ex = net.create_extractor();
+    ncnn::Extractor ex = yolox.create_extractor();
 
     ex.input("in0", in_pad);
 
@@ -293,14 +279,13 @@ static int detect_yolox(const cv::Mat &bgr, std::vector<Object> &objects)
 
     {
         ncnn::Mat out;
-        std::cout << "extracting yolox/yolo_head" << std::endl;
-        ex.extract("out0", out);
-        std::cout << "out shape: " << out.w << " " << out.h << " " << out.c << " " << out.dims << std::endl;
-
+        ex.extract("out0", out); // 原始out0.shape: 8400 85 1 2 原始加上Permute后结果是：85 8400 1 2
+        // ex.extract("out0", out);    // out0.shape: 8400 85 1 2
+        std::cout << "out0.shape: " << out.w << " " << out.h << " " << out.c << " " << out.dims << std::endl;
         static const int stride_arr[] = {8, 16, 32}; // might have stride=64 in YOLOX
         std::vector<int> strides(stride_arr, stride_arr + sizeof(stride_arr) / sizeof(stride_arr[0]));
         std::vector<GridAndStride> grid_strides;
-        generate_grids_and_stride(in_pad.w, in_pad.h, strides, grid_strides); // 此步骤异常终止 ************************************************
+        generate_grids_and_stride(in_pad.w, in_pad.h, strides, grid_strides);
         generate_yolox_proposals(grid_strides, out, YOLOX_CONF_THRESH, proposals);
     }
 
@@ -384,6 +369,7 @@ static void draw_objects(const cv::Mat &bgr, const std::vector<Object> &objects)
     }
 
     cv::imshow("image", image);
+    cv::moveWindow("image", 0, 0);
     cv::waitKey(0);
 }
 
@@ -395,11 +381,11 @@ int main(int argc, char **argv)
         std::cout << "read image failed" << std::endl;
         return -1;
     }
+
     std::vector<Object> objects;
     detect_yolox(m, objects);
 
     draw_objects(m, objects);
-    std::cout << "done" << std::endl;
+
     return 0;
 }
-// 运行后没反应

@@ -15,10 +15,7 @@ The ncnn framework enables cross-device deployment with the help of the vulkan a
 	✅ : good to work
     ❌ : bad to work
     ⭕ : good to work, but not good to contribute
-    ❓ : not sure
     🤔 : not sure, but good to contribute
-    🤷 : not sure, but bad to contribute
-    🤯 : not sure, but not good to contribute
     🔥🔥💥
 ### Failure Notes
 
@@ -33,8 +30,8 @@ The ncnn framework enables cross-device deployment with the help of the vulkan a
 | [yolop](objech_dection/yolop)                     | 2021 |       | Pytorch | objech_dection       | ❌       | 🤔      | 💥    |
 | [pfld](face_dection/pfld)                         | 2019 | 4.9M  | Pytorch | face_dection         | ❌       | ✅      |      |
 | [CaiT](image_classification/cait)                 | 2021 | 34.3M | Pytorch | image_classification | ✅       | ❌      |      |
-| [yolox](objech_dection/yolox)                     | 2021 | 1.7M  | Pytorch | objech_dection       | ✅       | ❌      | 💥    |
 | [yolov5](objech_dection/yolov5)                   | 2021 | 14.1M | Pytorch | objech_dection       | ⭕       | ✅      | 💥    |
+| [yolox](objech_dection/yolox)                     | 2021 | 1.7M  | Pytorch | objech_dection       | ✅       | ✅      | 💥    |
 | [AnimeGanV2](style_transfer/animeganv2)           | 2020 | 4.2M  | Pytorch | style_transfer       | ✅       | ✅      | 💥    |
 | [deeplabv3](image_matting/deeplabv3)              | 2017 | 21.5M | Pytorch | image_matting        | ✅       | ✅      |      |
 | [DenseNet](image_classification/denseNet)         | 2018 | 21.5M | Pytorch | image_classification | ✅       | ✅      |      |
