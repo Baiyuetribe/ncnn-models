@@ -19,32 +19,34 @@ The ncnn framework enables cross-device deployment with the help of the vulkan a
     🤔 : not sure, but good to contribute
     🤷 : not sure, but bad to contribute
     🤯 : not sure, but not good to contribute
+    🔥🔥💥
 ### Failure Notes
 
-> We believe we will succeed in the end.
+> We believe we will succeed in the end. 跪求各位大佬修正失败案例，个人失败太多快要自闭了😂。
 
-| Model                                             | Year | From    | Code                                                                                  | Convert | IsWork | Desktop | Mobile | Wasm | Uni-app | loT  |
-| :------------------------------------------------ | :--- | :------ | :------------------------------------------------------------------------------------ | :------ | :----- | :------ | :----- | :--- | :------ | :--- |
-| [RVM](image_matting/RVM)                          | 2021 | Pytorch | [link](https://github.com/PeterL1n/RobustVideoMatting)                                | ❌       | ✅      | ✅       | ✅      |      |         |      |
-| [deoldify](image_inpainting/deoldify)             | 2019 | Onnx    | [link](https://github.com/KeepGoing2019HaHa/AI-application)                           | ❌       | ✅      | 🤔       |        |      |         |      |
-| [AnimeGanV3](style_transfer/animeganv3)           | 2022 | Onnx    | [link](https://github.com/TachibanaYoshino/AnimeGANv3)                                | ❌       |        |         |        |      |         |      |
-| [HybridNets](objech_dection/hybridnets)           | 2022 | Pytorch | [link](https://github.com/datvuthanh/HybridNets)                                      | ❌       |        |         |        |      |         |      |
-| [yolop](objech_dection/yolop)                     | 2021 | Pytorch | [link](https://github.com/hustvl/YOLOP)                                               | ❌       | 🤔      | ✅       | ✅      |      |         |      |
-| [pfld](face_dection/pfld)                         | 2019 | Pytorch | [link](https://github.com/polarisZhao/PFLD-pytorch)                                   | ❌       | ✅      | ✅       | ✅      |      |         |      |
-| [CaiT](image_classification/cait)                 | 2021 | Pytorch | [link](https://github.com/rwightman/pytorch-image-models/blob/master/docs/results.md) | ✅       | ❌      | ✅       |        |      |         |      |
-| [yolox](objech_dection/yolox)                     | 2021 | Pytorch | [link](https://github.com/Megvii-BaseDetection/YOLOX)                                 | ✅       | ❌      |         | ✅      |      |         |      |
-| [yolov5](objech_dection/yolov5)                   | 2021 | Pytorch | [link](https://github.com/ultralytics/yolov5)                                         | ⭕       | ✅      | ✅       | ✅      | ✅    | ✅       | ✅    |
-| [AnimeGanV2](style_transfer/animeganv2)           | 2020 | Pytorch | [link](https://github.com/bryandlee/animegan2-pytorch)                                | ✅       | ✅      | ✅       | ✅      | 🤔    | 🤔       | ⭕    |
-| [deeplabv3](image_matting/deeplabv3)              | 2017 | Pytorch | [link](https://pytorch.org/hub/pytorch_vision_deeplabv3_resnet101/)                   | ✅       | ✅      | ✅       | 🤔      | 🤔    | 🤔       |      |
-| [DenseNet](image_classification/denseNet)         | 2018 | Pytorch | [link](https://pytorch.org/hub/pytorch_vision_densenet)                               | ✅       | ✅      | ✅       | 🤔      | 🤔    | 🤔       |      |
-| [resnet18](image_classification/resnet18)         | 2015 | Pytorch | [link](https://pytorch.org/hub/pytorch_vision_resnet)                                 | ✅       | ✅      | ✅       | 🤔      | 🤔    | 🤔       |      |
-| [mobilenet_v2](image_classification/mobilenet_v2) | 2019 | Pytorch | [link](https://pytorch.org/hub/pytorch_vision_mobilenet_v2/)                          | ✅       | ✅      | ✅       | 🤔      | 🤔    | 🤔       |      |
-| [mobilenet_v3](image_classification/mobilenet_v3) | 2019 | Pytorch | [link](https://rwightman.github.io/pytorch-image-models/models/mobilenet-v3/)         | ✅       | ✅      | ✅       | 🤔      | 🤔    | 🤔       |      |
-| [Res2Net](image_classification/res2net)           | 2021 | Pytorch | [link](https://rwightman.github.io/pytorch-image-models/models/res2net)               | ✅       | ✅      | ✅       |        |      |         |      |
-| [Res2Next50](image_classification/res2next50)     | 2021 | Pytorch | [link](https://rwightman.github.io/pytorch-image-models/models/res2next/)             | ✅       | ✅      | ✅       |        |      |         |      |
-| [nanodet](objech_dection/nanodet)                 | 2020 | Onnx    | [link](https://github.com/RangiLyu/nanodet)                                           | ✅       | ✅      | ✅       | ✅      | ✅    | 🤔       | 🤔    |
-| [UltraFace](face_dection/ultraface)               | 2019 | Pytorch | [link](https://github.com/Linzaer/Ultra-Light-Fast-Generic-Face-Detector-1MB)         | ✅       | ✅      | ✅       | ✅      | ✅    | 🤔       | ✅    |
-| [efficientnet](image_classification/efficientnet) | 2021 | Pytorch | [link](https://github.com/rwightman/pytorch-image-models/blob/master/docs/results.md) | ✅       | ✅      | ✅       |        |      |         |      |
+| Model                                             | Year | Size  | From    | Type                 | Convert | IsWork | Heat |
+| :------------------------------------------------ | :--- | :---- | :------ | :------------------- | :------ | :----- | :--- |
+| [RVM](image_matting/RVM)                          | 2021 | 13.6M | Pytorch | image_matting        | ❌       | ✅      | 💥    |
+| [deoldify](image_inpainting/deoldify)             | 2019 |       | Onnx    | image_inpainting     | ❌       | ✅      | 🔥    |
+| [AnimeGanV3](style_transfer/animeganv3)           | 2022 |       | Onnx    | style_transfer       | ❌       |        | 🔥    |
+| [HybridNets](objech_dection/hybridnets)           | 2022 |       | Pytorch | objech_dection       | ❌       |        |      |
+| [yolop](objech_dection/yolop)                     | 2021 |       | Pytorch | objech_dection       | ❌       | 🤔      | 💥    |
+| [pfld](face_dection/pfld)                         | 2019 | 4.9M  | Pytorch | face_dection         | ❌       | ✅      |      |
+| [CaiT](image_classification/cait)                 | 2021 | 34.3M | Pytorch | image_classification | ✅       | ❌      |      |
+| [yolox](objech_dection/yolox)                     | 2021 | 1.7M  | Pytorch | objech_dection       | ✅       | ❌      | 💥    |
+| [yolov5](objech_dection/yolov5)                   | 2021 | 14.1M | Pytorch | objech_dection       | ⭕       | ✅      | 💥    |
+| [AnimeGanV2](style_transfer/animeganv2)           | 2020 | 4.2M  | Pytorch | style_transfer       | ✅       | ✅      | 💥    |
+| [deeplabv3](image_matting/deeplabv3)              | 2017 | 21.5M | Pytorch | image_matting        | ✅       | ✅      |      |
+| [DenseNet](image_classification/denseNet)         | 2018 | 21.5M | Pytorch | image_classification | ✅       | ✅      |      |
+| [resnet18](image_classification/resnet18)         | 2015 | 22.8M | Pytorch | image_classification | ✅       | ✅      |      |
+| [mobilenet_v2](image_classification/mobilenet_v2) | 2019 | 6.8M  | Pytorch | image_classification | ✅       | ✅      | 🔥    |
+| [mobilenet_v3](image_classification/mobilenet_v3) | 2019 | 10.7M | Pytorch | image_classification | ✅       | ✅      | 🔥    |
+| [Res2Net](image_classification/res2net)           | 2021 | 88.2M | Pytorch | image_classification | ✅       | ✅      |      |
+| [Res2Next50](image_classification/res2next50)     | 2021 | 48.1M | Pytorch | image_classification | ✅       | ✅      |      |
+| [vgg16](image_classification/vgg16)               | 2015 | 263M  | Pytorch | image_classification | ✅       | ✅      |      |
+| [nanodet](objech_dection/nanodet)                 | 2020 | 2.3M  | Onnx    | objech_dection       | ✅       | ✅      | 🔥    |
+| [UltraFace](face_dection/ultraface)               | 2019 | 0.6M  | Pytorch | face_dection         | ✅       | ✅      | 🔥    |
+| [efficientnet](image_classification/efficientnet) | 2021 | 10.3  | Pytorch | image_classification | ✅       | ✅      | 🔥    |
 
 
 
