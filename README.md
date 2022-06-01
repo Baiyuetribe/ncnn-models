@@ -23,6 +23,7 @@ The ncnn framework enables cross-device deployment with the help of the vulkan a
 
 | Model                                             | Year | Size  | From    | Type                 | Convert | IsWork | Heat |
 | :------------------------------------------------ | :--- | :---- | :------ | :------------------- | :------ | :----- | :--- |
+| [MAT](image_inpainting/mat)                       | 2022 |       | Pytorch | image_inpainting     | ❌       |        | 💥    |
 | [RVM](image_matting/RVM)                          | 2021 | 13.6M | Pytorch | image_matting        | ❌       | ✅      | 💥    |
 | [deoldify](image_inpainting/deoldify)             | 2019 |       | Onnx    | image_inpainting     | ❌       | ✅      | 🔥    |
 | [AnimeGanV3](style_transfer/animeganv3)           | 2022 |       | Onnx    | style_transfer       | ❌       |        | 🔥    |
