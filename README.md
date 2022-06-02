@@ -35,6 +35,7 @@ The ncnn framework enables cross-device deployment with the help of the vulkan a
 | [yolo-fastestv2](object_dection/yolo-fastestv2)   | 2021 | 0.4M  | Pytorch | object_dection       | ✅       | ✅      | 💥    |
 | [yolox](object_dection/yolox)                     | 2021 | 1.7M  | Pytorch | object_dection       | ✅       | ✅      | 💥    |
 | [AnimeGanV2](style_transfer/animeganv2)           | 2020 | 4.2M  | Pytorch | style_transfer       | ✅       | ✅      | 💥    |
+| [styletransfer](style_transfer/styletransfer)     | 2016 | 3.2M  | Onnx    | style_transfer       | ✅       | ✅      |      |
 | [deeplabv3](image_matting/deeplabv3)              | 2017 | 21.5M | Pytorch | image_matting        | ✅       | ✅      |      |
 | [DenseNet](image_classification/denseNet)         | 2018 | 21.5M | Pytorch | image_classification | ✅       | ✅      |      |
 | [resnet18](image_classification/resnet18)         | 2015 | 22.8M | Pytorch | image_classification | ✅       | ✅      |      |
