@@ -8,3 +8,5 @@ res2next50.bin
 vgg16.bin
 cait_xxs36_384.bin
 anime-face_hrnetv2.bin
+netG_A2B.bin
+netG_B2A.bin

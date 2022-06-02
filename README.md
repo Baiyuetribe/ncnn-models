@@ -47,6 +47,7 @@ The ncnn framework enables cross-device deployment with the help of the vulkan a
 | [deeplabv3](image_matting/deeplabv3)              | 2017 | 21.5M | Pytorch | image_matting        | ✅       | ✅      |      |
 | [deoldify](image_inpainting/deoldify)             | 2019 | 242M  | Onnx    | image_inpainting     | 🤔       | ✅      | 🔥    |
 | [UltraFace](face_dection/ultraface)               | 2019 | 0.6M  | Pytorch | face_dection         | ✅       | ✅      | 🔥    |
+| [Anime2Real](style_transfer/anime2real)           | 2022 | 22.2M | Pytorch | style_transfer       | ✅       | ✅      |      |
 | [AnimeGanV2](style_transfer/animeganv2)           | 2020 | 4.2M  | Pytorch | style_transfer       | ✅       | ✅      | 💥    |
 | [styletransfer](style_transfer/styletransfer)     | 2016 | 3.2M  | Onnx    | style_transfer       | ✅       | ✅      |      |
 

@@ -62,13 +62,13 @@ int main(int argc, char **argv)
         return -1;
     }
 
-    ncnn::Net net;                                         // 定义神经网络
-    stylenet.opt.use_vulkan_compute = true;                // 开启GPU加速
-    stylenet.load_param("models/face_paint_512_v2.param"); // 加载模型参数
-    stylenet.load_model("models/face_paint_512_v2.param");
+    ncnn::Net net;                                    // 定义神经网络
+    net.opt.use_vulkan_compute = true;                // 开启GPU加速
+    net.load_param("models/face_paint_512_v2.param"); // 加载模型参数
+    net.load_model("models/face_paint_512_v2.bin");
     // 开始推理
     cv::Mat outbgr;
-    styletransfer(stylenet, bgr, outbgr); // 具体推理
+    styletransfer(net, bgr, outbgr); // 具体推理
     // 展示输出
     cv::imwrite(outpath, outbgr); // 保存结果
     cv::imshow("out", outbgr);    // 保存结果
