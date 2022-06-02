@@ -43,6 +43,7 @@ The ncnn framework enables cross-device deployment with the help of the vulkan a
 | [mobilenet_v3](image_classification/mobilenet_v3) | 2019 | 10.7M | Pytorch | image_classification | ✅       | ✅      | 🔥    |
 | [Res2Net](image_classification/res2net)           | 2021 | 88.2M | Pytorch | image_classification | ✅       | ✅      |      |
 | [Res2Next50](image_classification/res2next50)     | 2021 | 48.1M | Pytorch | image_classification | ✅       | ✅      |      |
+| [shufflenetv2](image_classification/shufflenetv2) | 2018 | 4.4M  | Onnx    | image_classification | ✅       | ✅      |      |
 | [vgg16](image_classification/vgg16)               | 2015 | 263M  | Pytorch | image_classification | ✅       | ✅      |      |
 | [nanodet](object_dection/nanodet)                 | 2020 | 2.3M  | Onnx    | object_dection       | ✅       | ✅      | 🔥    |
 | [UltraFace](face_dection/ultraface)               | 2019 | 0.6M  | Pytorch | face_dection         | ✅       | ✅      | 🔥    |
