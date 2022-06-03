@@ -1,4 +1,4 @@
-# fast_neural_style
+# Rethinking Portrait Matting with Privacy Preserving
 
 ## Input --> Output
 
