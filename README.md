@@ -17,7 +17,7 @@ The ncnn framework enables cross-device deployment with the help of the vulkan a
     ⭕ : good to work, but not good to contribute
     🤔 : not sure, but good to contribute
     🔥🔥💥
-### Failure Notes
+### Ncnn Models
 
 > We believe we will succeed in the end. 跪求各位大佬修正失败案例，个人失败太多快要自闭了😂。
 
@@ -54,17 +54,38 @@ The ncnn framework enables cross-device deployment with the help of the vulkan a
 | [styletransfer](style_transfer/styletransfer)     | 2016 | 3.2M  | Onnx    | style_transfer       | ✅       | ✅      |      |
 
 
+### Awesome App based on Ncnn
 
+####  1. Deep Face Live
 
-### Action recognition
+![](https://github.com/gunpowder78/DeepFaceLive/raw/master/doc/deepfacelive_intro.png)
 
-> need to be contribute
+see [DeepFaceLive](https://github.com/gunpowder78/DeepFaceLive)
 
-### Frame Interpolation
+#### 2. video-super-resolution
 
-### Super resolution
+waifu2x-ncnn-vulkan、realcugan-ncnn-vulkan、realEsrgan-ncnn-vulkan ...
+![](https://github.com/Baiyuetribe/paper2gui/raw/main/docs/images/realESRGAN_RAM.png)
 
-### Text recognition
+see [RealESRGAN](https://github.com/Baiyuetribe/paper2gui/blob/main/Video%20Super%20Resolution/RealESRGAN-GUI-RAM.md)
+
+#### 3. Video Matting
+
+![](https://github.com/ZHKKKe/MODNet/raw/master/doc/gif/homepage_demo.gif)
+
+see [MODNet](https://github.com/Baiyuetribe/paper2gui/blob/main/VideoMatting/modnet_gui.md)
+
+### 4. BlazePose
+![](https://github.com/FeiGeChuanShu/ncnn_Android_BlazePose/raw/main/result.gif)
+![](https://github.com/FeiGeChuanShu/ncnn_Android_BlazePose/raw/main/result_smoothing.gif)
+
+see [BlazePose](https://github.com/FeiGeChuanShu/ncnn_Android_BlazePose)
+
+### 5. AnimeGanV2
+
+![](https://user-images.githubusercontent.com/26464535/142294796-54394a4a-a566-47a1-b9ab-4e715b901442.gif)
+
+see [AnimeGanV2](https://github.com/Baiyuetribe/paper2gui/blob/main/Style%20Transfer/animegan_gui.md)
 
 ### Star History
 
