@@ -1,0 +1,15 @@
+7767517
+13 18
+Input                    in0                      0 1 in0
+Split                    splitncnn_0              1 2 in0 1 2
+Input                    in1                      0 1 in1
+Input                    in2                      0 1 in2
+Input                    in3                      0 1 in3
+Input                    in4                      0 1 in4
+LSTM                     lstm_1                   3 3 1 in1 in2 7 8 9 0=128 1=131584 2=0
+LSTM                     lstm_2                   3 3 7 in3 in4 10 11 12 0=128 1=65536 2=0
+Concat                   cat_0                    4 1 8 9 11 12 out1 0=0
+InnerProduct             fcsigmoid_0              1 1 10 14 0=257 1=1 2=32896 9=4
+Reshape                  reshape_5                1 1 14 15 0=-1
+Reshape                  reshape_4                1 1 2 16 0=-1
+BinaryOp                 mul_0                    2 1 15 16 out0 0=2

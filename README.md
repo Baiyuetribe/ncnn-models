@@ -23,6 +23,7 @@ The ncnn framework enables cross-device deployment with the help of the vulkan a
 
 | Model                                             | Year | Size  | From    | Type                 | Convert | IsWork | Heat |
 | :------------------------------------------------ | :--- | :---- | :------ | :------------------- | :------ | :----- | :--- |
+| [DTLN](audio_denoising/dtln)                      | 2022 | 1.9M  | Pytorch | audio_denoising      | ✅       | ✅      | 🔥    |
 | [MAT](image_inpainting/mat)                       | 2022 |       | Pytorch | image_inpainting     | ❌       |        | 💥    |
 | [RVM](image_matting/RVM)                          | 2021 | 13.6M | Pytorch | image_matting        | ❌       | ✅      | 💥    |
 | [vitea](image_matting/vitea)                      | 2022 | 52.9M | Pytorch | image_matting        | ❌       |        |      |
@@ -31,7 +32,7 @@ The ncnn framework enables cross-device deployment with the help of the vulkan a
 | [yolop](object_dection/yolop)                     | 2021 |       | Pytorch | object_dection       | ❌       | 🤔      | 💥    |
 | [pfld](face_dection/pfld)                         | 2019 | 4.9M  | Pytorch | face_dection         | ❌       | ✅      |      |
 | [Anime](face_dection/Anime_Face)                  | 2021 | 18.8M | Onnx    | face_dection         | ✅       | ⭕      |      |
-| [CaiT](image_classification/cait)                 | 2021 | 34.3M | Pytorch | image_classification | ✅       | ❌      |      |
+| [CaiT](image_classification/cait)                 | 2021 | 34.3M | Pytorch | image_classification | ✅       |        |      |
 | [yolov5](object_dection/yolov5)                   | 2021 | 14.1M | Pytorch | object_dection       | ⭕       | ✅      | 💥    |
 | [yolo-fastestv2](object_dection/yolo-fastestv2)   | 2021 | 0.4M  | Pytorch | object_dection       | ✅       | ✅      | 💥    |
 | [yolox](object_dection/yolox)                     | 2021 | 1.7M  | Pytorch | object_dection       | ✅       | ✅      | 💥    |
