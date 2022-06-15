@@ -11,10 +11,9 @@
 
 onnx --> simpleonnx --> onnx2ncnn --> ncnnOptimize --> ncnn
 
-在onnx2ncnn步骤失败，报错如下:
 ```
 import os
-# 1. download
+# 1. download models
 # download_url = https://github.com/onnx/models/tree/main/vision/style_transfer/fast_neural_style/model
 os.system("")
 
