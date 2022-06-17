@@ -88,6 +88,12 @@ see [BlazePose](https://github.com/FeiGeChuanShu/ncnn_Android_BlazePose)
 
 see [AnimeGanV2](https://github.com/Baiyuetribe/paper2gui/blob/main/Style%20Transfer/animegan_gui.md)
 
+### 6. GPT2-ChineseChat-NCNN
+
+![](https://github.com/EdVince/GPT2-ChineseChat-NCNN/raw/main/resources/android.jpg)
+
+see [GPT2-ChineseChat-NCNN](https://github.com/EdVince/GPT2-ChineseChat-NCNN)
+
 ### Star History
 
 [![Star History Chart](https://api.star-history.com/svg?repos=Baiyuetribe/ncnn-models&type=Date)](https://star-history.com/#Baiyuetribe/ncnn-models&Date)

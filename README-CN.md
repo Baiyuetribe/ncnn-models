@@ -25,6 +25,7 @@ yolov5  # 项目名称
 
 - [nihui](https://github.com/nihui) ncnn作者
 - [飞哥](https://github.com/feigechuanshu) ncnn安卓系列
+- [EdVince](https://github.com/EdVince) ncnn自然语言系列
 - [baiyue](https://github.com/Baiyuetribe/paper2gui) ncnn在PC桌面GUI系列
 - [670***@qq.com](https://ext.dcloud.net.cn/plugin?id=5243) ncnn在uni-app中的应用
 - [nihui](https://github.com/nihui/ncnn_on_esp32) ncnn在嵌入式设备上的应用
