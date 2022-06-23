@@ -9,7 +9,7 @@ model.eval()
 # torch_out = torch.onnx._export(model, x, "hybridnets.onnx", export_params=True, opset_version=11)
 
 # # 2. onnx --> onnxsim
-# os.system("python3 -m onnxsim hybridnets.onnx sim.onnx")
+# os.system("python -m onnxsim hybridnets.onnx sim.onnx")
 
 # # 3. onnx --> ncnn
 # os.system("onnx2ncnn sim.onnx ncnn.param ncnn.bin")

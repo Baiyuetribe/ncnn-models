@@ -21,7 +21,7 @@ os.system("wget https://github.com/Megvii-BaseDetection/YOLOX/releases/download/
 os.system("python3 tools/export_torchscript.py --output-name ts.pt -n yolox-nano -c yolox_nano.pth")
 
 # 3. ts ---> pnnx ---> ncnn
-os.system("pnnx ts.pt inputshape=[1,3,416,416]")  # nano 和tiny输入尺寸为416*416.其余为640*640.
+os.system("pnnx ts.pt inputshape=[1,3,416,416] inputshape2=[1,3,640,640]")  # nano 和tiny输入尺寸为416*416.其余为640*640.
 ```
 生成的param文件里，手动移除Input后面到Contact6层，然后新加一层，最后变为如下效果：
 ```ruby
