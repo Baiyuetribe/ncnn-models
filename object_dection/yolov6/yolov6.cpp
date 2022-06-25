@@ -217,13 +217,16 @@ static int detect_yolox(const cv::Mat &bgr, std::vector<Object> &objects)
     ncnn::Mat in_pad;
     // different from yolov5, yolox only pad on bottom and right side,
     // which means users don't need to extra padding info to decode boxes coordinate.
-    ncnn::copy_make_border(in, in_pad, 0, hpad, 0, wpad, ncnn::BORDER_CONSTANT, 114.f);
+    // ncnn::copy_make_border(in, in_pad, 0, hpad, 0, wpad, ncnn::BORDER_CONSTANT, 114.f);  // 下面解决CPU满负载问题
+    ncnn::Option opt;
+    opt.num_threads = 1;
+    ncnn::copy_make_border(in, in_pad, 0, hpad, 0, wpad, ncnn::BORDER_CONSTANT, 114.f, opt);
     const float norm_vals[3] = {1 / 255.f, 1 / 255.f, 1 / 255.f};
     in_pad.substract_mean_normalize(0, norm_vals);
 
     ncnn::Extractor ex = yolox.create_extractor();
 
-    ex.input("image_arrays", in_pad);
+    ex.input("images", in_pad);
 
     std::vector<Object> proposals;
 
