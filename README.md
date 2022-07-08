@@ -34,10 +34,11 @@ The ncnn framework enables cross-device deployment with the help of the vulkan a
 | [pfld](face_dection/pfld)                         | 2019 | 4.9M  | Pytorch | face_dection              | ❌       | ✅    |      |
 | [Anime](face_dection/Anime_Face)                  | 2021 | 18.8M | Onnx    | face_dection              | ✅       | ⭕    |      |
 | [CaiT](image_classification/cait)                 | 2021 | 34.3M | Pytorch | image_classification      | ✅       |      |      |
+| [yolov7](object_dection/yolov7)                   | 2022 | 72.1M | Pytorch | object_dection            | ✅       | ✅    | 💥    |
+| [yolov6](object_dection/yolov6)                   | 2022 | 8.4M  | Pytorch | object_dection            | ⭕       | ✅    |      |
 | [yolov5](object_dection/yolov5)                   | 2021 | 2.3M  | Pytorch | object_dection            | ✅       | ✅    | 💥    |
-| [yolov6](object_dection/yolov6)                   | 2022 | 8.4M  | Pytorch | object_dection            | ⭕       | ✅    | 💥    |
 | [yolo-fastestv2](object_dection/yolo-fastestv2)   | 2021 | 0.4M  | Pytorch | object_dection            | ✅       | ✅    | 💥    |
-| [yolox](object_dection/yolox)                     | 2021 | 1.7M  | Pytorch | object_dection            | ✅       | ✅    | 💥    |
+| [yolox](object_dection/yolox)                     | 2021 | 1.7M  | Pytorch | object_dection            | ✅       | ✅    |      |
 | [nanodet](object_dection/nanodet)                 | 2020 | 2.3M  | Onnx    | object_dection            | ✅       | ✅    | 🔥    |
 | [DenseNet](image_classification/denseNet)         | 2018 | 21.5M | Pytorch | image_classification      | ✅       | ✅    |      |
 | [resnet18](image_classification/resnet18)         | 2015 | 22.8M | Pytorch | image_classification      | ✅       | ✅    |      |
