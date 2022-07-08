@@ -19,6 +19,10 @@ pnnx yolov7.torchscript.pt inputshape=[1,3,640,640] inputshape=[1,3,320,320]
 
 ## Example project
 
+## NCNN-MODELS
+
+- [Download](https://github.com/Baiyuetribe/ncnn-models/releases/tag/models)
+
 
   
 ## Reference
