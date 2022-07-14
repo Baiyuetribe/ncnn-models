@@ -8,7 +8,95 @@
 #include <format>
 // ncnn
 #include "net.h"
-#include "ifrnet_ops.h"
+#include "layer.h"
+
+class Warp : public ncnn::Layer
+{
+public:
+    Warp()
+    {
+        one_blob_only = false;
+        // support_vulkan = true;
+        // pipeline_warp = 0;
+        // pipeline_warp_pack4 = 0;
+        // pipeline_warp_pack8 = 0;
+    }
+    // virtual int create_pipeline(const ncnn::Option &opt)
+    // virtual int destroy_pipeline(const ncnn::Option &opt);
+    virtual int forward(const std::vector<ncnn::Mat> &bottom_blobs, std::vector<ncnn::Mat> &top_blobs, const ncnn::Option &opt) const
+    {
+        const ncnn::Mat &image_blob = bottom_blobs[1];
+        const ncnn::Mat &flow_blob = bottom_blobs[0];
+
+        int w = image_blob.w;
+        int h = image_blob.h;
+        int channels = image_blob.c;
+
+        ncnn::Mat &top_blob = top_blobs[0];
+        top_blob.create(w, h, channels);
+        if (top_blob.empty())
+            return -100;
+
+        // #pragma omp parallel for num_threads(opt.num_threads)
+        for (int q = 0; q < channels; q++)
+        {
+            float *outptr = top_blob.channel(q);
+
+            const ncnn::Mat image = image_blob.channel(q);
+
+            const float *fxptr = flow_blob.channel(0);
+            const float *fyptr = flow_blob.channel(1);
+
+            for (int y = 0; y < h; y++)
+            {
+                for (int x = 0; x < w; x++)
+                {
+                    float flow_x = fxptr[0];
+                    float flow_y = fyptr[0];
+
+                    float sample_x = x + flow_x;
+                    float sample_y = y + flow_y;
+
+                    // bilinear interpolate
+                    float v;
+                    {
+                        int x0 = floor(sample_x);
+                        int y0 = floor(sample_y);
+                        int x1 = x0 + 1;
+                        int y1 = y0 + 1;
+
+                        x0 = std::min(std::max(x0, 0), w - 1);
+                        y0 = std::min(std::max(y0, 0), h - 1);
+                        x1 = std::min(std::max(x1, 0), w - 1);
+                        y1 = std::min(std::max(y1, 0), h - 1);
+
+                        float alpha = sample_x - x0;
+                        float beta = sample_y - y0;
+
+                        float v0 = image.row(y0)[x0];
+                        float v1 = image.row(y0)[x1];
+                        float v2 = image.row(y1)[x0];
+                        float v3 = image.row(y1)[x1];
+
+                        float v4 = v0 * (1 - alpha) + v1 * alpha;
+                        float v5 = v2 * (1 - alpha) + v3 * alpha;
+
+                        v = v4 * (1 - beta) + v5 * beta;
+                    }
+
+                    outptr[0] = v;
+
+                    outptr += 1;
+
+                    fxptr += 1;
+                    fyptr += 1;
+                }
+            }
+        }
+
+        return 0;
+    }
+};
 
 DEFINE_LAYER_CREATOR(Warp)
 // 自定义层
@@ -122,19 +210,17 @@ int ifrnet(const cv::Mat &in0image, const cv::Mat &in1image, float timestep, cv:
         ncnn::Mat out_padded;
         // 开始做推理
         ncnn::Net net;
-        // net.opt.use_vulkan_compute = true;
+        // net.opt.use_vulkan_compute = true;   // Exception after GPU run
         // net.opt.use_fp16_packed = true; // 一般与vulakn配套
         // net.opt.use_fp16_storage = true;
         net.register_custom_layer("ifrnet.Warp", Warp_layer_creator); // 特殊处理 开头加上 DEFINE_LAYER_CREATOR(Warp)
         net.load_param("models/ifrnet.param");
         net.load_model("models/ifrnet.bin");
-        std::cout << "ifrnet loaded" << std::endl;
         ncnn::Extractor ex = net.create_extractor();
         ex.input("in0", in0_padded);
         ex.input("in1", in1_padded);
         ex.input("in2", timestep_padded);
         ex.extract("out0", out_padded);
-        std::cout << "ifrnet extracted" << std::endl;
         std::cout << "ifrnet out_padded.size = " << out_padded.w << "*" << out_padded.h << "*" << out_padded.c << std::endl;
         // cut padding and postproc
         out.create(w, h, 3);
