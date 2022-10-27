@@ -1,13 +1,14 @@
 # DTLN
 
-## Input --> Output
+## Compare input audio with output audio
 
 ![](https://github.com/lhwcv/DTLN_pytorch/raw/main/samples/in.png)
 ![](https://github.com/lhwcv/DTLN_pytorch/raw/main/samples/out.png)
 
-## Convert
+## Convert DTLN from ONNX to NCNN
 
-- part1
+- Part 1
+
 ```python
 import os
 import torch
@@ -68,7 +69,9 @@ if __name__ == '__main__':
     # 2. ts --> pnnx --> ncnn
     os.system("pnnx ts1.pt inputshape=[1,1,257],[1,1,128],[1,1,128],[1,1,128][1,1,128]")
 ```
-- parrt2
+
+- Part 2
+
 ```python
 import os
 
@@ -84,12 +87,10 @@ os.system("ncnnoptimize ncnn.param ncnn.bin opt.param opt.bin 1")  # 数字0 代
 # 从原始项目中的onnx模型进行转换，原始项目pnnx模式报错，意思pnnx算子不支持aten:square
 
 ```
+
 ## Example project
-
-
 
 ## Reference
 
 - [lhwcv/DTLN_pytorch](https://github.com/lhwcv/DTLN_pytorch)
 - [breizhn/DTLN](https://github.com/breizhn/DTLN)
-
