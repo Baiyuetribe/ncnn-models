@@ -102,6 +102,9 @@ see [AnimeGanV2](https://github.com/Baiyuetribe/paper2gui/blob/main/Style%20Tran
 
 see [GPT2-ChineseChat-NCNN](https://github.com/EdVince/GPT2-ChineseChat-NCNN)
 
+### QQ群
+- 824562395 【*加群请备注你正在转换的新模型(2022至今)*】
+
 ### Star History
 
 [![Star History Chart](https://api.star-history.com/svg?repos=Baiyuetribe/ncnn-models&type=Date)](https://star-history.com/#Baiyuetribe/ncnn-models&Date)
