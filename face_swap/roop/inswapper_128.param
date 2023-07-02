@@ -1,0 +1,266 @@
+7767517
+264 329
+Input                    target                   0 1 target
+Input                    source                   0 1 source
+Split                    splitncnn_input1         1 12 source source_splitncnn_0 source_splitncnn_1 source_splitncnn_2 source_splitncnn_3 source_splitncnn_4 source_splitncnn_5 source_splitncnn_6 source_splitncnn_7 source_splitncnn_8 source_splitncnn_9 source_splitncnn_10 source_splitncnn_11
+Padding                  Pad_39                   1 1 target input 0=3 1=3 2=3 3=3 4=2
+Convolution              Conv_40                  1 1 input onnx::Conv_126 0=128 1=7 5=1 6=18816 9=2 -23310=1,2.000000e-01
+Convolution              Conv_42                  1 1 onnx::Conv_126 onnx::Conv_129 0=256 1=3 4=1 5=1 6=294912 9=2 -23310=1,2.000000e-01
+Convolution              Conv_44                  1 1 onnx::Conv_129 onnx::Conv_132 0=512 1=3 3=2 4=1 5=1 6=1179648 9=2 -23310=1,2.000000e-01
+Convolution              Conv_46                  1 1 onnx::Conv_132 onnx::Pad_135 0=1024 1=3 3=2 4=1 5=1 6=4718592 9=2 -23310=1,2.000000e-01
+Split                    splitncnn_0              1 2 onnx::Pad_135 onnx::Pad_135_splitncnn_0 onnx::Pad_135_splitncnn_1
+Padding                  Pad_61                   1 1 onnx::Pad_135_splitncnn_1 input.35 0=1 1=1 2=1 3=1 4=2
+Convolution              Conv_62                  1 1 input.35 onnx::ReduceMean_159 0=1024 1=3 5=1 6=9437184
+Split                    splitncnn_1              1 2 onnx::ReduceMean_159 onnx::ReduceMean_159_splitncnn_0 onnx::ReduceMean_159_splitncnn_1
+Reduction                ReduceMean_63            1 1 onnx::ReduceMean_159_splitncnn_1 onnx::Sub_160 0=3 1=0 -23303=2,1,2 4=1 5=1
+BinaryOp                 Sub_64                   2 1 onnx::ReduceMean_159_splitncnn_0 onnx::Sub_160 onnx::Mul_161 0=1
+Split                    splitncnn_2              1 3 onnx::Mul_161 onnx::Mul_161_splitncnn_0 onnx::Mul_161_splitncnn_1 onnx::Mul_161_splitncnn_2
+BinaryOp                 Mul_65                   2 1 onnx::Mul_161_splitncnn_2 onnx::Mul_161_splitncnn_1 onnx::ReduceMean_162 0=2
+Reduction                ReduceMean_66            1 1 onnx::ReduceMean_162 onnx::Add_163 0=3 1=0 -23303=2,1,2 4=1 5=1
+BinaryOp                 Add_68                   1 1 onnx::Add_163 onnx::Sqrt_165 1=1 2=1.000000e-08
+UnaryOp                  Sqrt_69                  1 1 onnx::Sqrt_165 onnx::Div_166 0=5
+BinaryOp                 Div_71                   1 1 onnx::Div_166 onnx::Mul_168 0=8 1=1 2=1.000000e+00
+BinaryOp                 Mul_72                   2 1 onnx::Mul_161_splitncnn_0 onnx::Mul_168 onnx::Mul_169 0=2
+InnerProduct             Gemm_73                  1 1 source_splitncnn_11 onnx::Unsqueeze_170 0=2048 1=1 2=1048576
+ExpandDims               Unsqueeze_75             1 1 onnx::Unsqueeze_170 onnx::Shape_172 -23303=2,1,2
+Split                    splitncnn_3              1 2 onnx::Shape_172 onnx::Shape_172_splitncnn_0 onnx::Shape_172_splitncnn_1
+Crop                     Slice_86                 1 1 onnx::Shape_172_splitncnn_1 onnx::Mul_183 -23309=1,0 -23310=1,1024 -23311=1,0
+Crop                     Slice_89                 1 1 onnx::Shape_172_splitncnn_0 onnx::Add_186 -23309=1,1024 -23310=1,2048 -23311=1,0
+BinaryOp                 Mul_90                   2 1 onnx::Mul_183 onnx::Mul_169 onnx::Add_187 0=2
+BinaryOp                 Add_91                   2 1 onnx::Add_187 onnx::Add_186 input.39
+ReLU                     Relu_92                  1 1 input.39 onnx::Pad_189
+Padding                  Pad_106                  1 1 onnx::Pad_189 input.43 0=1 1=1 2=1 3=1 4=2
+Convolution              Conv_107                 1 1 input.43 onnx::ReduceMean_213 0=1024 1=3 5=1 6=9437184
+Split                    splitncnn_4              1 2 onnx::ReduceMean_213 onnx::ReduceMean_213_splitncnn_0 onnx::ReduceMean_213_splitncnn_1
+Reduction                ReduceMean_108           1 1 onnx::ReduceMean_213_splitncnn_1 onnx::Sub_214 0=3 1=0 -23303=2,1,2 4=1 5=1
+BinaryOp                 Sub_109                  2 1 onnx::ReduceMean_213_splitncnn_0 onnx::Sub_214 onnx::Mul_215 0=1
+Split                    splitncnn_5              1 3 onnx::Mul_215 onnx::Mul_215_splitncnn_0 onnx::Mul_215_splitncnn_1 onnx::Mul_215_splitncnn_2
+BinaryOp                 Mul_110                  2 1 onnx::Mul_215_splitncnn_2 onnx::Mul_215_splitncnn_1 onnx::ReduceMean_216 0=2
+Reduction                ReduceMean_111           1 1 onnx::ReduceMean_216 onnx::Add_217 0=3 1=0 -23303=2,1,2 4=1 5=1
+BinaryOp                 Add_113                  1 1 onnx::Add_217 onnx::Sqrt_219 1=1 2=1.000000e-08
+UnaryOp                  Sqrt_114                 1 1 onnx::Sqrt_219 onnx::Div_220 0=5
+BinaryOp                 Div_116                  1 1 onnx::Div_220 onnx::Mul_222 0=8 1=1 2=1.000000e+00
+BinaryOp                 Mul_117                  2 1 onnx::Mul_215_splitncnn_0 onnx::Mul_222 onnx::Mul_223 0=2
+InnerProduct             Gemm_118                 1 1 source_splitncnn_10 onnx::Unsqueeze_224 0=2048 1=1 2=1048576
+ExpandDims               Unsqueeze_120            1 1 onnx::Unsqueeze_224 onnx::Shape_226 -23303=2,1,2
+Split                    splitncnn_6              1 2 onnx::Shape_226 onnx::Shape_226_splitncnn_0 onnx::Shape_226_splitncnn_1
+Crop                     Slice_131                1 1 onnx::Shape_226_splitncnn_1 onnx::Mul_237 -23309=1,0 -23310=1,1024 -23311=1,0
+Crop                     Slice_134                1 1 onnx::Shape_226_splitncnn_0 onnx::Add_240 -23309=1,1024 -23310=1,2048 -23311=1,0
+BinaryOp                 Mul_135                  2 1 onnx::Mul_237 onnx::Mul_223 onnx::Add_241 0=2
+BinaryOp                 Add_136                  2 1 onnx::Add_241 onnx::Add_240 onnx::Add_242
+BinaryOp                 Add_137                  2 1 onnx::Pad_135_splitncnn_0 onnx::Add_242 onnx::Pad_243
+Split                    splitncnn_7              1 2 onnx::Pad_243 onnx::Pad_243_splitncnn_0 onnx::Pad_243_splitncnn_1
+Padding                  Pad_151                  1 1 onnx::Pad_243_splitncnn_1 input.47 0=1 1=1 2=1 3=1 4=2
+Convolution              Conv_152                 1 1 input.47 onnx::ReduceMean_267 0=1024 1=3 5=1 6=9437184
+Split                    splitncnn_8              1 2 onnx::ReduceMean_267 onnx::ReduceMean_267_splitncnn_0 onnx::ReduceMean_267_splitncnn_1
+Reduction                ReduceMean_153           1 1 onnx::ReduceMean_267_splitncnn_1 onnx::Sub_268 0=3 1=0 -23303=2,1,2 4=1 5=1
+BinaryOp                 Sub_154                  2 1 onnx::ReduceMean_267_splitncnn_0 onnx::Sub_268 onnx::Mul_269 0=1
+Split                    splitncnn_9              1 3 onnx::Mul_269 onnx::Mul_269_splitncnn_0 onnx::Mul_269_splitncnn_1 onnx::Mul_269_splitncnn_2
+BinaryOp                 Mul_155                  2 1 onnx::Mul_269_splitncnn_2 onnx::Mul_269_splitncnn_1 onnx::ReduceMean_270 0=2
+Reduction                ReduceMean_156           1 1 onnx::ReduceMean_270 onnx::Add_271 0=3 1=0 -23303=2,1,2 4=1 5=1
+BinaryOp                 Add_158                  1 1 onnx::Add_271 onnx::Sqrt_273 1=1 2=1.000000e-08
+UnaryOp                  Sqrt_159                 1 1 onnx::Sqrt_273 onnx::Div_274 0=5
+BinaryOp                 Div_161                  1 1 onnx::Div_274 onnx::Mul_276 0=8 1=1 2=1.000000e+00
+BinaryOp                 Mul_162                  2 1 onnx::Mul_269_splitncnn_0 onnx::Mul_276 onnx::Mul_277 0=2
+InnerProduct             Gemm_163                 1 1 source_splitncnn_9 onnx::Unsqueeze_278 0=2048 1=1 2=1048576
+ExpandDims               Unsqueeze_165            1 1 onnx::Unsqueeze_278 onnx::Shape_280 -23303=2,1,2
+Split                    splitncnn_10             1 2 onnx::Shape_280 onnx::Shape_280_splitncnn_0 onnx::Shape_280_splitncnn_1
+Crop                     Slice_176                1 1 onnx::Shape_280_splitncnn_1 onnx::Mul_291 -23309=1,0 -23310=1,1024 -23311=1,0
+Crop                     Slice_179                1 1 onnx::Shape_280_splitncnn_0 onnx::Add_294 -23309=1,1024 -23310=1,2048 -23311=1,0
+BinaryOp                 Mul_180                  2 1 onnx::Mul_291 onnx::Mul_277 onnx::Add_295 0=2
+BinaryOp                 Add_181                  2 1 onnx::Add_295 onnx::Add_294 input.51
+ReLU                     Relu_182                 1 1 input.51 onnx::Pad_297
+Padding                  Pad_196                  1 1 onnx::Pad_297 input.55 0=1 1=1 2=1 3=1 4=2
+Convolution              Conv_197                 1 1 input.55 onnx::ReduceMean_321 0=1024 1=3 5=1 6=9437184
+Split                    splitncnn_11             1 2 onnx::ReduceMean_321 onnx::ReduceMean_321_splitncnn_0 onnx::ReduceMean_321_splitncnn_1
+Reduction                ReduceMean_198           1 1 onnx::ReduceMean_321_splitncnn_1 onnx::Sub_322 0=3 1=0 -23303=2,1,2 4=1 5=1
+BinaryOp                 Sub_199                  2 1 onnx::ReduceMean_321_splitncnn_0 onnx::Sub_322 onnx::Mul_323 0=1
+Split                    splitncnn_12             1 3 onnx::Mul_323 onnx::Mul_323_splitncnn_0 onnx::Mul_323_splitncnn_1 onnx::Mul_323_splitncnn_2
+BinaryOp                 Mul_200                  2 1 onnx::Mul_323_splitncnn_2 onnx::Mul_323_splitncnn_1 onnx::ReduceMean_324 0=2
+Reduction                ReduceMean_201           1 1 onnx::ReduceMean_324 onnx::Add_325 0=3 1=0 -23303=2,1,2 4=1 5=1
+BinaryOp                 Add_203                  1 1 onnx::Add_325 onnx::Sqrt_327 1=1 2=1.000000e-08
+UnaryOp                  Sqrt_204                 1 1 onnx::Sqrt_327 onnx::Div_328 0=5
+BinaryOp                 Div_206                  1 1 onnx::Div_328 onnx::Mul_330 0=8 1=1 2=1.000000e+00
+BinaryOp                 Mul_207                  2 1 onnx::Mul_323_splitncnn_0 onnx::Mul_330 onnx::Mul_331 0=2
+InnerProduct             Gemm_208                 1 1 source_splitncnn_8 onnx::Unsqueeze_332 0=2048 1=1 2=1048576
+ExpandDims               Unsqueeze_210            1 1 onnx::Unsqueeze_332 onnx::Shape_334 -23303=2,1,2
+Split                    splitncnn_13             1 2 onnx::Shape_334 onnx::Shape_334_splitncnn_0 onnx::Shape_334_splitncnn_1
+Crop                     Slice_221                1 1 onnx::Shape_334_splitncnn_1 onnx::Mul_345 -23309=1,0 -23310=1,1024 -23311=1,0
+Crop                     Slice_224                1 1 onnx::Shape_334_splitncnn_0 onnx::Add_348 -23309=1,1024 -23310=1,2048 -23311=1,0
+BinaryOp                 Mul_225                  2 1 onnx::Mul_345 onnx::Mul_331 onnx::Add_349 0=2
+BinaryOp                 Add_226                  2 1 onnx::Add_349 onnx::Add_348 onnx::Add_350
+BinaryOp                 Add_227                  2 1 onnx::Pad_243_splitncnn_0 onnx::Add_350 onnx::Pad_351
+Split                    splitncnn_14             1 2 onnx::Pad_351 onnx::Pad_351_splitncnn_0 onnx::Pad_351_splitncnn_1
+Padding                  Pad_241                  1 1 onnx::Pad_351_splitncnn_1 input.59 0=1 1=1 2=1 3=1 4=2
+Convolution              Conv_242                 1 1 input.59 onnx::ReduceMean_375 0=1024 1=3 5=1 6=9437184
+Split                    splitncnn_15             1 2 onnx::ReduceMean_375 onnx::ReduceMean_375_splitncnn_0 onnx::ReduceMean_375_splitncnn_1
+Reduction                ReduceMean_243           1 1 onnx::ReduceMean_375_splitncnn_1 onnx::Sub_376 0=3 1=0 -23303=2,1,2 4=1 5=1
+BinaryOp                 Sub_244                  2 1 onnx::ReduceMean_375_splitncnn_0 onnx::Sub_376 onnx::Mul_377 0=1
+Split                    splitncnn_16             1 3 onnx::Mul_377 onnx::Mul_377_splitncnn_0 onnx::Mul_377_splitncnn_1 onnx::Mul_377_splitncnn_2
+BinaryOp                 Mul_245                  2 1 onnx::Mul_377_splitncnn_2 onnx::Mul_377_splitncnn_1 onnx::ReduceMean_378 0=2
+Reduction                ReduceMean_246           1 1 onnx::ReduceMean_378 onnx::Add_379 0=3 1=0 -23303=2,1,2 4=1 5=1
+BinaryOp                 Add_248                  1 1 onnx::Add_379 onnx::Sqrt_381 1=1 2=1.000000e-08
+UnaryOp                  Sqrt_249                 1 1 onnx::Sqrt_381 onnx::Div_382 0=5
+BinaryOp                 Div_251                  1 1 onnx::Div_382 onnx::Mul_384 0=8 1=1 2=1.000000e+00
+BinaryOp                 Mul_252                  2 1 onnx::Mul_377_splitncnn_0 onnx::Mul_384 onnx::Mul_385 0=2
+InnerProduct             Gemm_253                 1 1 source_splitncnn_7 onnx::Unsqueeze_386 0=2048 1=1 2=1048576
+ExpandDims               Unsqueeze_255            1 1 onnx::Unsqueeze_386 onnx::Shape_388 -23303=2,1,2
+Split                    splitncnn_17             1 2 onnx::Shape_388 onnx::Shape_388_splitncnn_0 onnx::Shape_388_splitncnn_1
+Crop                     Slice_266                1 1 onnx::Shape_388_splitncnn_1 onnx::Mul_399 -23309=1,0 -23310=1,1024 -23311=1,0
+Crop                     Slice_269                1 1 onnx::Shape_388_splitncnn_0 onnx::Add_402 -23309=1,1024 -23310=1,2048 -23311=1,0
+BinaryOp                 Mul_270                  2 1 onnx::Mul_399 onnx::Mul_385 onnx::Add_403 0=2
+BinaryOp                 Add_271                  2 1 onnx::Add_403 onnx::Add_402 input.63
+ReLU                     Relu_272                 1 1 input.63 onnx::Pad_405
+Padding                  Pad_286                  1 1 onnx::Pad_405 input.67 0=1 1=1 2=1 3=1 4=2
+Convolution              Conv_287                 1 1 input.67 onnx::ReduceMean_429 0=1024 1=3 5=1 6=9437184
+Split                    splitncnn_18             1 2 onnx::ReduceMean_429 onnx::ReduceMean_429_splitncnn_0 onnx::ReduceMean_429_splitncnn_1
+Reduction                ReduceMean_288           1 1 onnx::ReduceMean_429_splitncnn_1 onnx::Sub_430 0=3 1=0 -23303=2,1,2 4=1 5=1
+BinaryOp                 Sub_289                  2 1 onnx::ReduceMean_429_splitncnn_0 onnx::Sub_430 onnx::Mul_431 0=1
+Split                    splitncnn_19             1 3 onnx::Mul_431 onnx::Mul_431_splitncnn_0 onnx::Mul_431_splitncnn_1 onnx::Mul_431_splitncnn_2
+BinaryOp                 Mul_290                  2 1 onnx::Mul_431_splitncnn_2 onnx::Mul_431_splitncnn_1 onnx::ReduceMean_432 0=2
+Reduction                ReduceMean_291           1 1 onnx::ReduceMean_432 onnx::Add_433 0=3 1=0 -23303=2,1,2 4=1 5=1
+BinaryOp                 Add_293                  1 1 onnx::Add_433 onnx::Sqrt_435 1=1 2=1.000000e-08
+UnaryOp                  Sqrt_294                 1 1 onnx::Sqrt_435 onnx::Div_436 0=5
+BinaryOp                 Div_296                  1 1 onnx::Div_436 onnx::Mul_438 0=8 1=1 2=1.000000e+00
+BinaryOp                 Mul_297                  2 1 onnx::Mul_431_splitncnn_0 onnx::Mul_438 onnx::Mul_439 0=2
+InnerProduct             Gemm_298                 1 1 source_splitncnn_6 onnx::Unsqueeze_440 0=2048 1=1 2=1048576
+ExpandDims               Unsqueeze_300            1 1 onnx::Unsqueeze_440 onnx::Shape_442 -23303=2,1,2
+Split                    splitncnn_20             1 2 onnx::Shape_442 onnx::Shape_442_splitncnn_0 onnx::Shape_442_splitncnn_1
+Crop                     Slice_311                1 1 onnx::Shape_442_splitncnn_1 onnx::Mul_453 -23309=1,0 -23310=1,1024 -23311=1,0
+Crop                     Slice_314                1 1 onnx::Shape_442_splitncnn_0 onnx::Add_456 -23309=1,1024 -23310=1,2048 -23311=1,0
+BinaryOp                 Mul_315                  2 1 onnx::Mul_453 onnx::Mul_439 onnx::Add_457 0=2
+BinaryOp                 Add_316                  2 1 onnx::Add_457 onnx::Add_456 onnx::Add_458
+BinaryOp                 Add_317                  2 1 onnx::Pad_351_splitncnn_0 onnx::Add_458 onnx::Pad_459
+Split                    splitncnn_21             1 2 onnx::Pad_459 onnx::Pad_459_splitncnn_0 onnx::Pad_459_splitncnn_1
+Padding                  Pad_331                  1 1 onnx::Pad_459_splitncnn_1 input.71 0=1 1=1 2=1 3=1 4=2
+Convolution              Conv_332                 1 1 input.71 onnx::ReduceMean_483 0=1024 1=3 5=1 6=9437184
+Split                    splitncnn_22             1 2 onnx::ReduceMean_483 onnx::ReduceMean_483_splitncnn_0 onnx::ReduceMean_483_splitncnn_1
+Reduction                ReduceMean_333           1 1 onnx::ReduceMean_483_splitncnn_1 onnx::Sub_484 0=3 1=0 -23303=2,1,2 4=1 5=1
+BinaryOp                 Sub_334                  2 1 onnx::ReduceMean_483_splitncnn_0 onnx::Sub_484 onnx::Mul_485 0=1
+Split                    splitncnn_23             1 3 onnx::Mul_485 onnx::Mul_485_splitncnn_0 onnx::Mul_485_splitncnn_1 onnx::Mul_485_splitncnn_2
+BinaryOp                 Mul_335                  2 1 onnx::Mul_485_splitncnn_2 onnx::Mul_485_splitncnn_1 onnx::ReduceMean_486 0=2
+Reduction                ReduceMean_336           1 1 onnx::ReduceMean_486 onnx::Add_487 0=3 1=0 -23303=2,1,2 4=1 5=1
+BinaryOp                 Add_338                  1 1 onnx::Add_487 onnx::Sqrt_489 1=1 2=1.000000e-08
+UnaryOp                  Sqrt_339                 1 1 onnx::Sqrt_489 onnx::Div_490 0=5
+BinaryOp                 Div_341                  1 1 onnx::Div_490 onnx::Mul_492 0=8 1=1 2=1.000000e+00
+BinaryOp                 Mul_342                  2 1 onnx::Mul_485_splitncnn_0 onnx::Mul_492 onnx::Mul_493 0=2
+InnerProduct             Gemm_343                 1 1 source_splitncnn_5 onnx::Unsqueeze_494 0=2048 1=1 2=1048576
+ExpandDims               Unsqueeze_345            1 1 onnx::Unsqueeze_494 onnx::Shape_496 -23303=2,1,2
+Split                    splitncnn_24             1 2 onnx::Shape_496 onnx::Shape_496_splitncnn_0 onnx::Shape_496_splitncnn_1
+Crop                     Slice_356                1 1 onnx::Shape_496_splitncnn_1 onnx::Mul_507 -23309=1,0 -23310=1,1024 -23311=1,0
+Crop                     Slice_359                1 1 onnx::Shape_496_splitncnn_0 onnx::Add_510 -23309=1,1024 -23310=1,2048 -23311=1,0
+BinaryOp                 Mul_360                  2 1 onnx::Mul_507 onnx::Mul_493 onnx::Add_511 0=2
+BinaryOp                 Add_361                  2 1 onnx::Add_511 onnx::Add_510 input.75
+ReLU                     Relu_362                 1 1 input.75 onnx::Pad_513
+Padding                  Pad_376                  1 1 onnx::Pad_513 input.79 0=1 1=1 2=1 3=1 4=2
+Convolution              Conv_377                 1 1 input.79 onnx::ReduceMean_537 0=1024 1=3 5=1 6=9437184
+Split                    splitncnn_25             1 2 onnx::ReduceMean_537 onnx::ReduceMean_537_splitncnn_0 onnx::ReduceMean_537_splitncnn_1
+Reduction                ReduceMean_378           1 1 onnx::ReduceMean_537_splitncnn_1 onnx::Sub_538 0=3 1=0 -23303=2,1,2 4=1 5=1
+BinaryOp                 Sub_379                  2 1 onnx::ReduceMean_537_splitncnn_0 onnx::Sub_538 onnx::Mul_539 0=1
+Split                    splitncnn_26             1 3 onnx::Mul_539 onnx::Mul_539_splitncnn_0 onnx::Mul_539_splitncnn_1 onnx::Mul_539_splitncnn_2
+BinaryOp                 Mul_380                  2 1 onnx::Mul_539_splitncnn_2 onnx::Mul_539_splitncnn_1 onnx::ReduceMean_540 0=2
+Reduction                ReduceMean_381           1 1 onnx::ReduceMean_540 onnx::Add_541 0=3 1=0 -23303=2,1,2 4=1 5=1
+BinaryOp                 Add_383                  1 1 onnx::Add_541 onnx::Sqrt_543 1=1 2=1.000000e-08
+UnaryOp                  Sqrt_384                 1 1 onnx::Sqrt_543 onnx::Div_544 0=5
+BinaryOp                 Div_386                  1 1 onnx::Div_544 onnx::Mul_546 0=8 1=1 2=1.000000e+00
+BinaryOp                 Mul_387                  2 1 onnx::Mul_539_splitncnn_0 onnx::Mul_546 onnx::Mul_547 0=2
+InnerProduct             Gemm_388                 1 1 source_splitncnn_4 onnx::Unsqueeze_548 0=2048 1=1 2=1048576
+ExpandDims               Unsqueeze_390            1 1 onnx::Unsqueeze_548 onnx::Shape_550 -23303=2,1,2
+Split                    splitncnn_27             1 2 onnx::Shape_550 onnx::Shape_550_splitncnn_0 onnx::Shape_550_splitncnn_1
+Crop                     Slice_401                1 1 onnx::Shape_550_splitncnn_1 onnx::Mul_561 -23309=1,0 -23310=1,1024 -23311=1,0
+Crop                     Slice_404                1 1 onnx::Shape_550_splitncnn_0 onnx::Add_564 -23309=1,1024 -23310=1,2048 -23311=1,0
+BinaryOp                 Mul_405                  2 1 onnx::Mul_561 onnx::Mul_547 onnx::Add_565 0=2
+BinaryOp                 Add_406                  2 1 onnx::Add_565 onnx::Add_564 onnx::Add_566
+BinaryOp                 Add_407                  2 1 onnx::Pad_459_splitncnn_0 onnx::Add_566 onnx::Pad_567
+Split                    splitncnn_28             1 2 onnx::Pad_567 onnx::Pad_567_splitncnn_0 onnx::Pad_567_splitncnn_1
+Padding                  Pad_421                  1 1 onnx::Pad_567_splitncnn_1 input.83 0=1 1=1 2=1 3=1 4=2
+Convolution              Conv_422                 1 1 input.83 onnx::ReduceMean_591 0=1024 1=3 5=1 6=9437184
+Split                    splitncnn_29             1 2 onnx::ReduceMean_591 onnx::ReduceMean_591_splitncnn_0 onnx::ReduceMean_591_splitncnn_1
+Reduction                ReduceMean_423           1 1 onnx::ReduceMean_591_splitncnn_1 onnx::Sub_592 0=3 1=0 -23303=2,1,2 4=1 5=1
+BinaryOp                 Sub_424                  2 1 onnx::ReduceMean_591_splitncnn_0 onnx::Sub_592 onnx::Mul_593 0=1
+Split                    splitncnn_30             1 3 onnx::Mul_593 onnx::Mul_593_splitncnn_0 onnx::Mul_593_splitncnn_1 onnx::Mul_593_splitncnn_2
+BinaryOp                 Mul_425                  2 1 onnx::Mul_593_splitncnn_2 onnx::Mul_593_splitncnn_1 onnx::ReduceMean_594 0=2
+Reduction                ReduceMean_426           1 1 onnx::ReduceMean_594 onnx::Add_595 0=3 1=0 -23303=2,1,2 4=1 5=1
+BinaryOp                 Add_428                  1 1 onnx::Add_595 onnx::Sqrt_597 1=1 2=1.000000e-08
+UnaryOp                  Sqrt_429                 1 1 onnx::Sqrt_597 onnx::Div_598 0=5
+BinaryOp                 Div_431                  1 1 onnx::Div_598 onnx::Mul_600 0=8 1=1 2=1.000000e+00
+BinaryOp                 Mul_432                  2 1 onnx::Mul_593_splitncnn_0 onnx::Mul_600 onnx::Mul_601 0=2
+InnerProduct             Gemm_433                 1 1 source_splitncnn_3 onnx::Unsqueeze_602 0=2048 1=1 2=1048576
+ExpandDims               Unsqueeze_435            1 1 onnx::Unsqueeze_602 onnx::Shape_604 -23303=2,1,2
+Split                    splitncnn_31             1 2 onnx::Shape_604 onnx::Shape_604_splitncnn_0 onnx::Shape_604_splitncnn_1
+Crop                     Slice_446                1 1 onnx::Shape_604_splitncnn_1 onnx::Mul_615 -23309=1,0 -23310=1,1024 -23311=1,0
+Crop                     Slice_449                1 1 onnx::Shape_604_splitncnn_0 onnx::Add_618 -23309=1,1024 -23310=1,2048 -23311=1,0
+BinaryOp                 Mul_450                  2 1 onnx::Mul_615 onnx::Mul_601 onnx::Add_619 0=2
+BinaryOp                 Add_451                  2 1 onnx::Add_619 onnx::Add_618 input.87
+ReLU                     Relu_452                 1 1 input.87 onnx::Pad_621
+Padding                  Pad_466                  1 1 onnx::Pad_621 input.91 0=1 1=1 2=1 3=1 4=2
+Convolution              Conv_467                 1 1 input.91 onnx::ReduceMean_645 0=1024 1=3 5=1 6=9437184
+Split                    splitncnn_32             1 2 onnx::ReduceMean_645 onnx::ReduceMean_645_splitncnn_0 onnx::ReduceMean_645_splitncnn_1
+Reduction                ReduceMean_468           1 1 onnx::ReduceMean_645_splitncnn_1 onnx::Sub_646 0=3 1=0 -23303=2,1,2 4=1 5=1
+BinaryOp                 Sub_469                  2 1 onnx::ReduceMean_645_splitncnn_0 onnx::Sub_646 onnx::Mul_647 0=1
+Split                    splitncnn_33             1 3 onnx::Mul_647 onnx::Mul_647_splitncnn_0 onnx::Mul_647_splitncnn_1 onnx::Mul_647_splitncnn_2
+BinaryOp                 Mul_470                  2 1 onnx::Mul_647_splitncnn_2 onnx::Mul_647_splitncnn_1 onnx::ReduceMean_648 0=2
+Reduction                ReduceMean_471           1 1 onnx::ReduceMean_648 onnx::Add_649 0=3 1=0 -23303=2,1,2 4=1 5=1
+BinaryOp                 Add_473                  1 1 onnx::Add_649 onnx::Sqrt_651 1=1 2=1.000000e-08
+UnaryOp                  Sqrt_474                 1 1 onnx::Sqrt_651 onnx::Div_652 0=5
+BinaryOp                 Div_476                  1 1 onnx::Div_652 onnx::Mul_654 0=8 1=1 2=1.000000e+00
+BinaryOp                 Mul_477                  2 1 onnx::Mul_647_splitncnn_0 onnx::Mul_654 onnx::Mul_655 0=2
+InnerProduct             Gemm_478                 1 1 source_splitncnn_2 onnx::Unsqueeze_656 0=2048 1=1 2=1048576
+ExpandDims               Unsqueeze_480            1 1 onnx::Unsqueeze_656 onnx::Shape_658 -23303=2,1,2
+Split                    splitncnn_34             1 2 onnx::Shape_658 onnx::Shape_658_splitncnn_0 onnx::Shape_658_splitncnn_1
+Crop                     Slice_491                1 1 onnx::Shape_658_splitncnn_1 onnx::Mul_669 -23309=1,0 -23310=1,1024 -23311=1,0
+Crop                     Slice_494                1 1 onnx::Shape_658_splitncnn_0 onnx::Add_672 -23309=1,1024 -23310=1,2048 -23311=1,0
+BinaryOp                 Mul_495                  2 1 onnx::Mul_669 onnx::Mul_655 onnx::Add_673 0=2
+BinaryOp                 Add_496                  2 1 onnx::Add_673 onnx::Add_672 onnx::Add_674
+BinaryOp                 Add_497                  2 1 onnx::Pad_567_splitncnn_0 onnx::Add_674 onnx::Pad_675
+Split                    splitncnn_35             1 2 onnx::Pad_675 onnx::Pad_675_splitncnn_0 onnx::Pad_675_splitncnn_1
+Padding                  Pad_511                  1 1 onnx::Pad_675_splitncnn_1 input.95 0=1 1=1 2=1 3=1 4=2
+Convolution              Conv_512                 1 1 input.95 onnx::ReduceMean_699 0=1024 1=3 5=1 6=9437184
+Split                    splitncnn_36             1 2 onnx::ReduceMean_699 onnx::ReduceMean_699_splitncnn_0 onnx::ReduceMean_699_splitncnn_1
+Reduction                ReduceMean_513           1 1 onnx::ReduceMean_699_splitncnn_1 onnx::Sub_700 0=3 1=0 -23303=2,1,2 4=1 5=1
+BinaryOp                 Sub_514                  2 1 onnx::ReduceMean_699_splitncnn_0 onnx::Sub_700 onnx::Mul_701 0=1
+Split                    splitncnn_37             1 3 onnx::Mul_701 onnx::Mul_701_splitncnn_0 onnx::Mul_701_splitncnn_1 onnx::Mul_701_splitncnn_2
+BinaryOp                 Mul_515                  2 1 onnx::Mul_701_splitncnn_2 onnx::Mul_701_splitncnn_1 onnx::ReduceMean_702 0=2
+Reduction                ReduceMean_516           1 1 onnx::ReduceMean_702 onnx::Add_703 0=3 1=0 -23303=2,1,2 4=1 5=1
+BinaryOp                 Add_518                  1 1 onnx::Add_703 onnx::Sqrt_705 1=1 2=1.000000e-08
+UnaryOp                  Sqrt_519                 1 1 onnx::Sqrt_705 onnx::Div_706 0=5
+BinaryOp                 Div_521                  1 1 onnx::Div_706 onnx::Mul_708 0=8 1=1 2=1.000000e+00
+BinaryOp                 Mul_522                  2 1 onnx::Mul_701_splitncnn_0 onnx::Mul_708 onnx::Mul_709 0=2
+InnerProduct             Gemm_523                 1 1 source_splitncnn_1 onnx::Unsqueeze_710 0=2048 1=1 2=1048576
+ExpandDims               Unsqueeze_525            1 1 onnx::Unsqueeze_710 onnx::Shape_712 -23303=2,1,2
+Split                    splitncnn_38             1 2 onnx::Shape_712 onnx::Shape_712_splitncnn_0 onnx::Shape_712_splitncnn_1
+Crop                     Slice_536                1 1 onnx::Shape_712_splitncnn_1 onnx::Mul_723 -23309=1,0 -23310=1,1024 -23311=1,0
+Crop                     Slice_539                1 1 onnx::Shape_712_splitncnn_0 onnx::Add_726 -23309=1,1024 -23310=1,2048 -23311=1,0
+BinaryOp                 Mul_540                  2 1 onnx::Mul_723 onnx::Mul_709 onnx::Add_727 0=2
+BinaryOp                 Add_541                  2 1 onnx::Add_727 onnx::Add_726 input.99
+ReLU                     Relu_542                 1 1 input.99 onnx::Pad_729
+Padding                  Pad_556                  1 1 onnx::Pad_729 input.103 0=1 1=1 2=1 3=1 4=2
+Convolution              Conv_557                 1 1 input.103 onnx::ReduceMean_753 0=1024 1=3 5=1 6=9437184
+Split                    splitncnn_39             1 2 onnx::ReduceMean_753 onnx::ReduceMean_753_splitncnn_0 onnx::ReduceMean_753_splitncnn_1
+Reduction                ReduceMean_558           1 1 onnx::ReduceMean_753_splitncnn_1 onnx::Sub_754 0=3 1=0 -23303=2,1,2 4=1 5=1
+BinaryOp                 Sub_559                  2 1 onnx::ReduceMean_753_splitncnn_0 onnx::Sub_754 onnx::Mul_755 0=1
+Split                    splitncnn_40             1 3 onnx::Mul_755 onnx::Mul_755_splitncnn_0 onnx::Mul_755_splitncnn_1 onnx::Mul_755_splitncnn_2
+BinaryOp                 Mul_560                  2 1 onnx::Mul_755_splitncnn_2 onnx::Mul_755_splitncnn_1 onnx::ReduceMean_756 0=2
+Reduction                ReduceMean_561           1 1 onnx::ReduceMean_756 onnx::Add_757 0=3 1=0 -23303=2,1,2 4=1 5=1
+BinaryOp                 Add_563                  1 1 onnx::Add_757 onnx::Sqrt_759 1=1 2=1.000000e-08
+UnaryOp                  Sqrt_564                 1 1 onnx::Sqrt_759 onnx::Div_760 0=5
+BinaryOp                 Div_566                  1 1 onnx::Div_760 onnx::Mul_762 0=8 1=1 2=1.000000e+00
+BinaryOp                 Mul_567                  2 1 onnx::Mul_755_splitncnn_0 onnx::Mul_762 onnx::Mul_763 0=2
+InnerProduct             Gemm_568                 1 1 source_splitncnn_0 onnx::Unsqueeze_764 0=2048 1=1 2=1048576
+ExpandDims               Unsqueeze_570            1 1 onnx::Unsqueeze_764 onnx::Shape_766 -23303=2,1,2
+Split                    splitncnn_41             1 2 onnx::Shape_766 onnx::Shape_766_splitncnn_0 onnx::Shape_766_splitncnn_1
+Crop                     Slice_581                1 1 onnx::Shape_766_splitncnn_1 onnx::Mul_777 -23309=1,0 -23310=1,1024 -23311=1,0
+Crop                     Slice_584                1 1 onnx::Shape_766_splitncnn_0 onnx::Add_780 -23309=1,1024 -23310=1,2048 -23311=1,0
+BinaryOp                 Mul_585                  2 1 onnx::Mul_777 onnx::Mul_763 onnx::Add_781 0=2
+BinaryOp                 Add_586                  2 1 onnx::Add_781 onnx::Add_780 onnx::Add_782
+BinaryOp                 Add_587                  2 1 onnx::Pad_675_splitncnn_0 onnx::Add_782 input.107
+Interp                   Resize_589               1 1 input.107 input.111 0=2 1=2.000000e+00 2=2.000000e+00
+Convolution              Conv_590                 1 1 input.111 onnx::Resize_791 0=512 1=3 4=1 5=1 6=4718592 9=2 -23310=1,2.000000e-01
+Interp                   Resize_593               1 1 onnx::Resize_791 input.123 0=2 1=2.000000e+00 2=2.000000e+00
+Convolution              Conv_594                 1 1 input.123 onnx::Conv_799 0=256 1=3 4=1 5=1 6=1179648 9=2 -23310=1,2.000000e-01
+Convolution              Conv_596                 1 1 onnx::Conv_799 onnx::Pad_802 0=128 1=3 4=1 5=1 6=294912 9=2 -23310=1,2.000000e-01
+Padding                  Pad_611                  1 1 onnx::Pad_802 input.143 0=3 1=3 2=3 3=3 4=2
+Convolution              Conv_612                 1 1 input.143 onnx::Tanh_826 0=3 1=7 5=1 6=18816
+UnaryOp                  Tanh_613                 1 1 onnx::Tanh_826 onnx::Add_827 0=16
+BinaryOp                 Add_615                  1 1 onnx::Add_827 onnx::Div_829 1=1 2=1.000000e+00
+BinaryOp                 Div_617                  1 1 onnx::Div_829 output 0=3 1=1 2=2.000000e+00
